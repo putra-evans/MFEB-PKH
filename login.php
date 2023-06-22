@@ -18,7 +18,7 @@ if ($admin != 0) {
 <html lang="en">
 
 <head>
-    <title>Kiara 96.7 FM</title>
+    <title>MFEB - PKH</title>
     <?php include 'components/head.php'; ?>
 
 
@@ -58,13 +58,16 @@ if ($admin != 0) {
                             <path d="M331.32124,326.54178,301.4969,342.19956l52.9382,31.31555,7.366,18.16951a9.63673,9.63673,0,0,1-5.78925,12.73088h0a9.63673,9.63673,0,0,1-12.76159-8.54442l-.74489-12.66307-67.2838-22.20366a15.73306,15.73306,0,0,1-9.87265-9.61147v0a15.733,15.733,0,0,1,5.90262-18.30258l54.10485-37.11845Z" transform="translate(-203.5 -174.13424)" fill="#ffb8b8" />
                             <path d="M361.14557,329.52422c-12.43861-5.4511-23.74934.47044-38.026,5.21926l-2.23683-39.51725c14.17612-7.55568,27.69209-9.59281,40.26285-3.728Z" transform="translate(-203.5 -174.13424)" fill="#6c63ff" />
                             <circle cx="172.52496" cy="78.09251" r="23.80211" fill="#ffb8b8" />
-                            <path d="M404.5,249.22353c-23.56616,2.30811-41.52338-1.54606-53-12.52007v-8.8377h51Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" /></svg>
+                            <path d="M404.5,249.22353c-23.56616,2.30811-41.52338-1.54606-53-12.52007v-8.8377h51Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
+                        </svg>
                     </div>
                     <div class="col-md-6">
                         <div class="card-body mt-5">
                             <div class="brand-wrapper">
                             </div>
                             <p class="login-card-description" style="font-family: fantasy;">Silahkan Login</p>
+                            <p class="">Selamat Datang...</p>
+
                             <form action="" method="POST">
                                 <div class="form-group">
                                     <label for="email" class="sr-only">Username</label>
@@ -77,8 +80,6 @@ if ($admin != 0) {
                                 <button class="btn btn-primary btn-block" style="background-color: #6C63FF;" type="submit" name="login">Login</button>
                             </form>
 
-                            <p class="login-card-footer-text mt-3">Selamat Datang
-                            </p>
                             <!-- <nav class="login-card-footer-nav">
                                 <a href="#!">Terms of use.</a>
                                 <a href="#!">Privacy policy</a>
