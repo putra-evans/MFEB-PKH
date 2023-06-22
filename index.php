@@ -1,36 +1,67 @@
 <?php
-
-include 'admin/model/Db.php';;
-
+include 'model/Db.php';
 $db = new Db();
+
+
+if (empty($_SESSION['admin'])) {
+  echo "<script>
+  window.location='login.html';
+  </script>";
+}
 
 
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <?php include 'components/head.php'; ?>
+  <title>MFEB - PKH</title>
 
-<body style="background-color: white;">
 
-  <!-- ======= Header ======= -->
-  <?php include 'components/navbar.php'; ?>
-  <!-- End Header -->
+  <?php include('components/head.php') ?>
 
-  <?php include 'content.php' ?>
+</head>
 
-  <!-- ======= Footer ======= -->
-  <?php include 'components/footer.php' ?>
-  <!-- End Footer -->
+<body id="page-top" style="background-color: whitesmoke;">
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <?php include 'components/top.navbar.php' ?>
 
-  <?php include 'components/script.php'; ?>
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <?php include 'components/sidebar.php' ?>
+    <!----==================================-->
+
+    <div id="content-wrapper">
+
+      <?php include 'content.php' ?>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <?php include 'components/footer.php' ?>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!--modal logout-->
+  <?php include 'components/modal.php' ?>
+
 
 </body>
+
+<?php include 'components/script.php' ?>
+
 
 </html>

@@ -1,14 +1,32 @@
- <!-- Vendor JS Files -->
- <script src="assets/vendor/jquery/jquery.min.js"></script>
- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
- <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
- <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
- <script src="assets/vendor/counterup/counterup.min.js"></script>
- <script src="assets/vendor/venobox/venobox.min.js"></script>
- <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
- <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
- <script src="assets/vendor/aos/aos.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
- <!-- Template Main JS File -->
- <script src="assets/js/main.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="assets/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="assets/vendor/chart.js/Chart.min.js"></script>
+  <script src="assets/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="assets/js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="assets/js/demo/datatables-demo.js"></script>
+  <script src="assets/js/demo/chart-area-demo.js"></script>
+
+  <script>
+    $(function() {
+      $("#example1").DataTable();
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+      });
+    });
+  </script>
