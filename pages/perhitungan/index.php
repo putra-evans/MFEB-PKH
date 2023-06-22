@@ -190,7 +190,8 @@
                                 <td class="text-center"><?= number_format($pecah['nilai_disabilitas']     * $datak[5]['kriteria_bobot'], 2)  ?></td>
                                 <td class="text-center"><?= number_format($pecah['nilai_lanjut_usia']     * $datak[6]['kriteria_bobot'], 2)  ?></td>
                                 <td class="text-center"><?= number_format($juml, 2) ?></td>
-                                <td class="text-center"><?= substr($total, 0, 5)  ?></td>
+                                <!-- <td class="text-center"><?= substr($total, 0, 5)  ?></td> -->
+                                <td class="text-center"><?= number_format($total, 2)  ?></td>
                             </tr>
                             <form action="" method="post">
                                 <input type="hidden" name="id_pdd[]" value="<?= $pecah['id_penduduk'] ?>">

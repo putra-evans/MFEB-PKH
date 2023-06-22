@@ -58,15 +58,15 @@
             <i class="fas fa-fw fa-users"></i>
           </div>
           <?php
-          $ambil = $koneksi->query("SELECT COUNT(*) FROM tbl_penyiar");
+          $ambil = $koneksi->query("SELECT COUNT(*) FROM tbl_penduduk");
           $pecah = $ambil->fetch_assoc();
           // var_dump($pecah['COUNT(*)']);
           // // $admin = $pecah->num_row();
           // $admin = mysqli_num_rows($ambil);
           ?>
-          <div class="mr-5"><?php echo $pecah['COUNT(*)'] ?> Karyawan</div>
+          <div class="mr-5"><?php echo $pecah['COUNT(*)'] ?> Penduduk</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="karyawan.html">
+        <a class="card-footer text-white clearfix small z-1" href="penduduk.html">
           <span class="float-left">Lihat Details</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
