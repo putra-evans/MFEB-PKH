@@ -18,7 +18,7 @@ if (empty($_SESSION['admin'])) {
 <html lang="en">
 
 <head>
-  <title>Kiara 96.7 FM</title>
+  <title>MFEB - PKH</title>
 
 
   <?php include('components/head.php') ?>

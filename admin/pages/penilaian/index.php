@@ -20,13 +20,14 @@
                     <thead>
                         <tr align="center">
                             <th>No</th>
-                            <th>Nama Penyiar</th>
-                            <th>Absensi</th>
-                            <th>Sikap Kerja</th>
-                            <th>Kemampuan Komunikasi</th>
-                            <th>Pemilihan Lagu</th>
-                            <th>Audience / Pendengar</th>
-                            <th>Masa Kerja</th>
+                            <th>Nama Penduduk</th>
+                            <th>Ibu Hamil</th>
+                            <th>Anak Usia Dini</th>
+                            <th>Anak SD</th>
+                            <th>Anak SMP</th>
+                            <th>Anak SMA</th>
+                            <th>Disabilitas Berat</th>
+                            <th>Lanjut Usia</th>
                             <th width="13%">Aksi</th>
                         </tr>
                     </thead>
@@ -34,18 +35,21 @@
                         <?php
                         $penilaian = $db->tampilDataPenilaian();
                         foreach ($penilaian as $no => $pecah) :
+
+                            // <img src="images/check.png" alt="" width="7%">
                         ?>
                             <tr align="center">
                                 <td><?= ++$no ?></td>
-                                <td><?= $pecah['penyiar_nama'] ?></td>
-                                <td><?= $pecah['absensi'] ?></td>
-                                <td><?= $pecah['sikap'] ?></td>
-                                <td><?= $pecah['komunikasi'] ?></td>
-                                <td><?= $pecah['lagu'] ?></td>
-                                <td><?= $pecah['pendengar'] ?></td>
-                                <td><?= $pecah['masa_kerja'] ?> Tahun</td>
+                                <td><?= ucwords($pecah['nama_penduduk']) ?></td>
+                                <td><?= ucwords($pecah['ibu_hamil']) ?> </td>
+                                <td><?= ucwords($pecah['anak_usia_dini']) ?></td>
+                                <td><?= ucwords($pecah['anak_sd']) ?></td>
+                                <td><?= ucwords($pecah['anak_smp']) ?></td>
+                                <td><?= ucwords($pecah['anak_sma']) ?></td>
+                                <td><?= ucwords($pecah['disabilitas_berat']) ?></td>
+                                <td><?= ucwords($pecah['lanjut_usia']) ?></td>
                                 <td>
-                                    <a class="btn btn-danger" href="hapus-nilai-<?= $pecah['nilai_id']  ?>.html"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="hapus-nilai-<?= $pecah['nilai_id']  ?>.html"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>

@@ -1,6 +1,6 @@
 <?php
 
-$koneksi = new mysqli('localhost', 'root', '', 'mfep_radio');
+$koneksi = new mysqli('localhost', 'root', '', 'mfep_pkh');
 
 class conn
 {
@@ -16,5 +16,15 @@ class conn
         }
 
         return $hasil;
+    }
+
+    public function convert_nilai($nilai)
+    {
+        if ($nilai == 'ada') {
+            $hasil_nilai = 10;
+        } else {
+            $hasil_nilai = 0;
+        }
+        return $hasil_nilai;
     }
 }

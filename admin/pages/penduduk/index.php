@@ -30,28 +30,25 @@
                     </thead>
                     <tbody>
                         <?php
-                        $Karyawan = $db->tampilKaryawan();
-                        //var_dump($Karyawan);
-                        foreach ($Karyawan as $no => $pecah) :
+                        $pdd = $db->tampilPdd();
+                        //var_dump($pdd);
+                        foreach ($pdd as $no => $pecah) :
                         ?>
                             <tr>
                                 <td><?= ++$no ?></td>
-                                <td><?= $pecah['penyiar_nama'] ?></td>
-                                <td><?= $pecah['penyiar_jk'] ?></td>
-                                <td><?= $pecah['penyiar_alamat'] ?></td>
-                                <td><?= $pecah['penyiar_nohp'] ?></td>
-                                <td><?= $pecah['penyiar_email'] ?></td>
+                                <td><?= $pecah['nama_penduduk'] ?></td>
+                                <td><?= $pecah['jk_penduduk'] ?></td>
+                                <td><?= $pecah['alamat_penduduk'] ?></td>
+                                <td><?= $pecah['nohp_penduduk'] ?></td>
+                                <td><?= $pecah['email_penduduk'] ?></td>
                                 <td align="center">
-                                    <button type="button" onclick="tampilModal('<?= $pecah['penyiar_id'] ?>')" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-                                    <a class="btn btn-danger" href="hapus-karyawan-<?= $pecah['penyiar_id']  ?>.html"><i class="fa fa-trash"></i></a>
+                                    <button type="button" onclick="tampilModal('<?= $pecah['id_penduduk'] ?>')" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
+                                    <a class="btn btn-danger btn-sm" href="hapus-penduduk-<?= $pecah['id_penduduk']  ?>.html"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
-
-
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -71,16 +68,16 @@
 
                 <?php
                 if (isset($_POST['save'])) {
-                    $db->tambahKaryawan($_POST);
+                    $db->tambahPdd($_POST);
                     echo "     <script>alert('data berhasil disimpan')</script>";
-                    echo "     <script>window.location='karyawan.html'</script>";
+                    echo "     <script>window.location='penduduk.html'</script>";
                 }
                 ?>
                 <div class="container">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label class="font-weight-bold">Nama Penyiar</label>
-                            <input type="text" name="nama" class="form-control" required>
+                            <label class="font-weight-bold">Nama Penduduk</label>
+                            <input type="text" name="nama" class="form-control" placeholder="Masukan nama..." required>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Jenis Kelamin</label>
@@ -92,15 +89,15 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Alamat</label>
-                            <textarea name="alamat" cols="30" rows="5" class="form-control" required></textarea>
+                            <textarea name="alamat" cols="30" rows="5" class="form-control" required placeholder="Masukan alamat..."></textarea>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">No HP</label>
-                            <input type="number" name="nohp" class="form-control" required>
+                            <input type="number" name="nohp" class="form-control" required placeholder="Masukan nohp">
                         </div>
                         <div class="form-group">
-                            <label class="font-weight-bold">Email Penyiar</label>
-                            <input type="text" name="email" class="form-control" required>
+                            <label class="font-weight-bold">Email</label>
+                            <input type="text" name="email" class="form-control" required placeholder="Masukan email...">
                         </div>
                         <button name="save" type="submit" class="btn btn-primary btn-block mb-2">Simpan</button>
                     </form>
@@ -116,7 +113,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Pegawai</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Penduduk</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -124,9 +121,9 @@
             <div class="modal-body">
                 <form action="" method="POST" enctype="multipart/form-data">
                     <?php if (isset($_POST['edit'])) {
-                        $db->editKaryawan($_POST);
+                        $db->editPdd($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=karyawan.html'>";
+                        echo "<meta http-equiv='refresh' content='0;url=penduduk.html'>";
                     } ?>
                     <input type="hidden" id="id" name="id" class="form-control">
                     <div class="form-group">
@@ -167,7 +164,7 @@
 <script>
     function tampilModal(id) {
         $.ajax({
-            url: 'pages/karyawan/tampilEdit.php',
+            url: 'pages/penduduk/tampilEdit.php',
             type: 'POST',
             data: {
                 'id': id
@@ -175,12 +172,12 @@
             dataType: 'JSON',
             success: function(data) {
                 console.log(data);
-                $('#id').val(data.penyiar_id)
-                $('#nama').val(data.penyiar_nama)
-                $('#jk').val(data.penyiar_jk)
-                $('#alamat').val(data.penyiar_alamat)
-                $('#nohp').val(data.penyiar_nohp)
-                $('#email').val(data.penyiar_email)
+                $('#id').val(data.id_penduduk)
+                $('#nama').val(data.nama_penduduk)
+                $('#jk').val(data.jk_penduduk)
+                $('#alamat').val(data.alamat_penduduk)
+                $('#nohp').val(data.nohp_penduduk)
+                $('#email').val(data.email_penduduk)
                 // document.getElementById('foto').src = 'images/admin/' + data.admin_foto
                 $('#exampleEdit').modal()
             }

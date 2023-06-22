@@ -135,20 +135,20 @@ class Db extends conn
         return $koneksi->query($query);
     }
     //-------------------------------------------AKHIR DARI CRUD KRITERIA---------------------------------------------//
-    //-------------------------------------------AKHIR DARI CRUD KARYAWAN---------------------------------------------//
-    public function tampilKaryawan()
+    //-------------------------------------------AKHIR DARI CRUD PENDUDUK---------------------------------------------//
+    public function tampilPdd()
     {
-        $query = $this->ambilData("SELECT * FROM tbl_penyiar");
+        $query = $this->ambilData("SELECT * FROM tbl_penduduk ORDER BY id_penduduk DESC");
         return $query;
     }
-    public function HapusKaryawan($id)
+    public function HapusPdd($id)
     {
         global $koneksi;
-        $query =  "DELETE FROM tbl_penyiar WHERE penyiar_id = '$id'";
+        $query =  "DELETE FROM tbl_penduduk WHERE id_penduduk = '$id'";
         return $koneksi->query($query);
     }
 
-    public function editKaryawan($data)
+    public function editPdd($data)
     {
         global $koneksi;
         $id     = $data['id'];
@@ -157,10 +157,10 @@ class Db extends conn
         $alamat = $data['alamat'];
         $nohp   = $data['nohp'];
         $email  = $data['email'];
-        return $koneksi->query("UPDATE `tbl_penyiar` SET `penyiar_nama`='$nama',`penyiar_jk`='$jk ',`penyiar_alamat`='$alamat',`penyiar_nohp`='$nohp',`penyiar_email`='$email' WHERE `penyiar_id`='$id'");
+        return $koneksi->query("UPDATE `tbl_penduduk` SET `nama_penduduk`='$nama',`jk_penduduk`='$jk ',`alamat_penduduk`='$alamat',`nohp_penduduk`='$nohp',`email_penduduk`='$email' WHERE `id_penduduk`='$id'");
     }
 
-    public function tambahKaryawan($data)
+    public function tambahPdd($data)
     {
         global $koneksi;
         $nama       = $data['nama'];
@@ -168,7 +168,7 @@ class Db extends conn
         $alamat     = $data['alamat'];
         $nohp       = $data['nohp'];
         $email      = $data['email'];
-        $query = "INSERT INTO `tbl_penyiar`(`penyiar_nama`, `penyiar_jk`, `penyiar_alamat`, `penyiar_nohp`, `penyiar_email`) VALUES 
+        $query = "INSERT INTO `tbl_penduduk`(`nama_penduduk`, `jk_penduduk`, `alamat_penduduk`, `nohp_penduduk`, `email_penduduk`) VALUES 
                                                                                 ('$nama',
                                                                                 '$jk',
                                                                                 '$alamat',
@@ -176,21 +176,75 @@ class Db extends conn
                                                                                 '$email')";
         return $koneksi->query($query);
     }
-    //-------------------------------------------AKHIR DARI CRUD KARYAWAN---------------------------------------------//
+    //-------------------------------------------AKHIR DARI CRUD PENDUDUK---------------------------------------------//
     //-------------------------------------------AKHIR DARI CRUD penilaian---------------------------------------------//
     public function tampilDataPenilaian()
     {
-        $query = $this->ambilData("SELECT * FROM tbl_penilaian a JOIN tbl_penyiar b ON a.penyiar_id=b.penyiar_id");
+        $query = $this->ambilData("SELECT * FROM tbl_penilaian a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk");
         return $query;
     }
-    public function tampilMasakerja()
+
+    public function tambahDataPenilaian($data)
     {
-        $query = $this->ambilData("SELECT * FROM tbl_masakerja");
-        return $query;
+        global $koneksi;
+
+
+        $id_penduduk        = $data['id_penduduk'];
+        $ibu_hamil          = $data['ibu_hamil'];
+        $anak_dini          = $data['anak_dini'];
+        $anak_sd            = $data['anak_sd'];
+        $anak_smp           = $data['anak_smp'];
+        $anak_sma           = $data['anak_sma'];
+        $disabilitas_berat  = $data['disabilitas_berat'];
+        $lanjut_usia        = $data['lanjut_usia'];
+
+        $a = $this->convert_nilai($ibu_hamil);
+        $b = $this->convert_nilai($anak_dini);
+        $c = $this->convert_nilai($anak_sd);
+        $d = $this->convert_nilai($anak_smp);
+        $e = $this->convert_nilai($anak_sma);
+        $f = $this->convert_nilai($disabilitas_berat);
+        $g = $this->convert_nilai($lanjut_usia);
+
+        $cek_data = $koneksi->query("SELECT * FROM tbl_penilaian where id_penduduk='$id_penduduk'");
+        $row = mysqli_num_rows($cek_data);
+        if ($row > 0) {
+            return false;
+        } else {
+            $query = $koneksi->query("INSERT INTO `tbl_penilaian`(`id_penduduk`, `ibu_hamil`, `anak_usia_dini`, `anak_sd`, `anak_smp`, `anak_sma`,`disabilitas_berat`,`lanjut_usia`) VALUES 
+            ('$id_penduduk',
+            '$ibu_hamil',
+            '$anak_dini',
+            '$anak_sd',
+            '$anak_smp',
+            '$anak_sma',
+            '$disabilitas_berat',
+            '$lanjut_usia'
+            )");
+            $query = $koneksi->query("INSERT INTO `tbl_normalisasi`(`id_penduduk`, `nilai_ibu_hamil`, `nilai_usia_dini`, `nilai_sd`, `nilai_smp`, `nilai_sma`,`nilai_disabilitas`,`nilai_lanjut_usia`) VALUES
+            ('$id_penduduk',
+            '$a',
+            '$b',
+            '$c',
+            '$d',
+            '$e',
+            '$f',
+            '$g'
+            )");
+            return $query;
+        }
     }
+    public function HapusPenilaian($id)
+    {
+        global $koneksi;
+        $query =  "DELETE FROM tbl_penilaian WHERE nilai_id = '$id'";
+
+        return $koneksi->query($query);
+    }
+
     public function tampilDataNormalisasi()
     {
-        $query = $this->ambilData("SELECT * FROM tbl_normalisasi a JOIN tbl_penyiar b ON a.penyiar_id=b.penyiar_id");
+        $query = $this->ambilData("SELECT * FROM tbl_normalisasi a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk");
         return $query;
     }
 
@@ -202,118 +256,16 @@ class Db extends conn
 
         return $hasil;
     }
-    public function tambahDataPenilaian($data)
-    {
-        global $koneksi;
-        $id_karyawan    = $data['id_karyawan'];
-        $absen          = $data['absen'];
-        $sikap          = $data['sikap'];
-        $komunikasi     = $data['komunikasi'];
-        $lagu           = $data['lagu'];
-        $pendengar      = $data['pendengar'];
-        $masa_kerja      = $data['masa_kerja'];
-
-        // absensi
-        if ($absen >= 91) {
-            $absen_kary = 4;
-        } elseif ($absen >= 71 && $absen <= 90) {
-            $absen_kary = 3;
-        } elseif ($absen >= 55 && $absen <= 70) {
-            $absen_kary = 2;
-        } else {
-            $absen_kary = 1;
-        }
-        // sikap
-        if ($sikap >= 90) {
-            $sikap_kary = 4;
-        } elseif ($sikap >= 76 && $sikap <= 89) {
-            $sikap_kary = 3;
-        } elseif ($sikap >= 60 && $sikap <= 75) {
-            $sikap_kary = 2;
-        } else {
-            $sikap_kary = 1;
-        }
-        // komunikasi
-        if ($komunikasi >= 86) {
-            $komunikasi_kary = 4;
-        } elseif ($komunikasi >= 66 && $komunikasi <= 85) {
-            $komunikasi_kary = 3;
-        } elseif ($komunikasi >= 51 && $komunikasi <= 65) {
-            $komunikasi_kary = 2;
-        } else {
-            $komunikasi_kary = 1;
-        }
-        // lagu
-        if ($lagu >= 76) {
-            $lagu_kary = 4;
-        } elseif ($lagu >= 60 && $lagu <= 75) {
-            $lagu_kary = 3;
-        } elseif ($lagu >= 45 && $lagu <= 59) {
-            $lagu_kary = 2;
-        } else {
-            $lagu_kary = 1;
-        }
-        // pendengar
-        if ($pendengar >= 70) {
-            $pendengar_kary = 4;
-        } elseif ($pendengar >= 50 && $pendengar <= 69) {
-            $pendengar_kary = 3;
-            // } elseif ($pendengar >= 51 && $pendengar <= 74) {
-            //     $pendengar_kary = 2;
-        } else {
-            $pendengar_kary = 2;
-        }
-
-        //MASA KERJA
-
-        if ($masa_kerja >= 16) {
-            $kerja = 5;
-        } else if ($masa_kerja >= 11 && $masa_kerja <= 15) {
-            $kerja = 4;
-        } else if ($masa_kerja >= 6 && $masa_kerja <= 10) {
-            $kerja = 3;
-        } else if ($masa_kerja >= 3 && $masa_kerja <= 5) {
-            $kerja = 2;
-        } else {
-            $kerja = 1;
-        }
 
 
 
-        $koneksi->query("INSERT INTO `tbl_penilaian`(`penyiar_id`, `absensi`, `sikap`, `komunikasi`, `lagu`, `pendengar`,`masa_kerja`) VALUES 
-                                                                                ('$id_karyawan',
-                                                                                '$absen',
-                                                                                '$sikap',
-                                                                                '$komunikasi',
-                                                                                '$lagu',
-                                                                                '$pendengar',
-                                                                                '$masa_kerja'
-                                                                                )");
-        $koneksi->query("INSERT INTO `tbl_normalisasi`(`penyiar_id`, `nor_absensi`, `nor_sikap`, `nor_komunikasi`, `nor_lagu`, `nor_pendengar`,`nor_masakerja`) VALUES
-                                                                                ('$id_karyawan',
-                                                                                '$absen_kary',
-                                                                                '$sikap_kary',
-                                                                                '$komunikasi_kary',
-                                                                                '$lagu_kary',
-                                                                                '$pendengar_kary',
-                                                                                '$kerja'
-                                                                                )");
-    }
 
 
-
-    public function HapusPenilaian($id)
-    {
-        global $koneksi;
-        $query =  "DELETE FROM tbl_penilaian WHERE nilai_id = '$id'";
-
-        return $koneksi->query($query);
-    }
     //-------------------------------------------AKHIR DARI CRUD penilaian---------------------------------------------//
     //-------------------------------------------AKHIR DARI CRUD RANKING---------------------------------------------//
     public function tampilDataRank()
     {
-        $query = $this->ambilData("SELECT * FROM tbl_rank a JOIN tbl_penyiar b ON a.penyiar_id=b.penyiar_id ORDER BY nilai_ev DESC ");
+        $query = $this->ambilData("SELECT * FROM tbl_rank a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk ORDER BY nilai_ev DESC ");
         return $query;
     }
 

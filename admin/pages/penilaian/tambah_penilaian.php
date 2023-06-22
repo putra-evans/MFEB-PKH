@@ -1,9 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // if (isset($_POST['save'])) {
-    $db->tambahDataPenilaian($_POST);
-    echo "     <script>alert('Data Berhasil Disimpan')</script>";
-    echo "     <script>window.location='penilaian.html'</script>";
+    $hasil = $db->tambahDataPenilaian($_POST);
+    if ($hasil == true) {
+        echo "     <script>alert('Data Berhasil Disimpan')</script>";
+        echo "     <script>window.location='penilaian.html'</script>";
+    } else {
+        echo "     <script>alert('Data Penduduk Sudah Ada')</script>";
+        echo "     <script>window.location='penilaian.html'</script>";
+    }
 }
 
 ?>
@@ -20,61 +24,75 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             Input Data Penilaian
         </div>
         <div class="card-body pl-5">
-
             <form action="" method="POST" style="width: 90%;" enctype="multipart/form-data">
-
-                <p style="font-size: 15px; font-family: cursive; font-style: italic;">Hal yang perlu diperhatikan untuk menginputkan nilai penyiar : </p>
-                <ul style="font-size: 15px; font-family: cursive; font-style: italic;">
-                    <li>Nilai yang di inputkan harus berupa angka</li>
-                    <li>Jangan sampai ada form yang kosong</li>
-                    <li>Range nilai yang diinputkan yaitu 1-100</li>
-                </ul>
-                <br>
                 <h4 class="text-center" style="font-family: fantasy;">SILAHKAN ISI FORM BERIKUT</h4>
                 <br>
                 <div class="form-group">
-                    <label class="font-weight-bold">Nama Penyiar</label>
-                    <select name="id_karyawan" id="id_karyawan" class="form-control" required>
+                    <label class="font-weight-bold">Nama Penduduk</label>
+                    <select name="id_penduduk" id="id_penduduk" class="form-control" required>
                         <option value="">--Silahkan Pilih--</option>
                         <?php
-                        $karyawan = $db->tampilKaryawan();
-                        foreach ($karyawan as $no => $pecah) :
+                        $penduduk = $db->tampilPdd();
+                        foreach ($penduduk as $no => $pecah) :
                         ?>
-                            <option value="<?= $pecah['penyiar_id'] ?>"><?= $pecah['penyiar_nama'] ?></option>
+                            <option value="<?= $pecah['id_penduduk'] ?>"><?= $pecah['nama_penduduk'] ?></option>
                         <?php endforeach ?>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label class="font-weight-bold">Absensi (%)</label>
-                    <input type="number" name="absen" class="form-control" required>
+                    <label class="font-weight-bold">Terdapat Ibu Hamil</label>
+                    <select name="ibu_hamil" id="ibu_hamil" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold">Sikap Kerja</label>
-                    <input type="text" class="form-control" name="sikap" required>
+                    <label class="font-weight-bold">Terdapat Anak Usia Dini</label>
+                    <select name="anak_dini" id="anak_dini" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold">Kemampuan Komunikasi</label>
-                    <input type="text" class="form-control" name="komunikasi" required>
+                    <label class="font-weight-bold">Terdapat Anak SD</label>
+                    <select name="anak_sd" id="anak_sd" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold">Pemilihan Lagu (%)</label>
-                    <input type="number" class="form-control" name="lagu" required>
+                    <label class="font-weight-bold">Terdapat Anak SMP</label>
+                    <select name="anak_smp" id="anak_smp" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold">Audience / Pendengar (%)</label>
-                    <input type="number" class="form-control" name="pendengar" required>
+                    <label class="font-weight-bold">Terdapat Anak SMA</label>
+                    <select name="anak_sma" id="anak_sma" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label class="font-weight-bold">Masa Kerja</label>
-                    <select name="masa_kerja" id="masa_kerja" class="form-control" required>
-                        <option value="">--Silahkan Pilih--</option>
-                        <?php
-                        $tahun = $db->tampilMasakerja();
-                        foreach ($tahun as $no => $pecah) :
-                        ?>
-                            <option value="<?= $pecah['masa_kerja'] ?>"><?= $pecah['masa_kerja'] ?> Tahun</option>
-                        <?php endforeach ?>
+                    <label class="font-weight-bold">Terdapat Disabilitas Berat</label>
+                    <select name="disabilitas_berat" id="disabilitas_berat" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold">Terdapat Lanjut Usia</label>
+                    <select name="lanjut_usia" id="lanjut_usia" class="form-control" required>
+                        <option value="">-- Silahkan Pilih --</option>
+                        <option value="ada">Ada</option>
+                        <option value="tidak ada">Tidak Ada</option>
                     </select>
                 </div>
                 <div class="text-center">

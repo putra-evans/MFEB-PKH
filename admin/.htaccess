@@ -27,8 +27,8 @@ RewriteRule ^laporan\.html$ ?page=pages/laporan/index [L]
 
 
 #siswa
-RewriteRule ^karyawan\.html$ ?page=pages/karyawan/index [L]
-RewriteRule ^hapus-karyawan-([0-9]+)\.html$ ?page=pages/karyawan/hapuskaryawan&id=$1 [L]
+RewriteRule ^penduduk\.html$ ?page=pages/penduduk/index [L]
+RewriteRule ^hapus-penduduk-([0-9]+)\.html$ ?page=pages/penduduk/hapuspenduduk&id=$1 [L]
 
 
 #penialain

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #6C63FF;">
 
-  <a style="font-family: cursive; " class="navbar-brand mr-1" href="index.php">Kiara 96.7 FM</a>
- 
+  <a style="font-family: cursive; " class="navbar-brand mr-1" href="index.php">MFEB - PKH</a>
+
 
   <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
     <i class="fas fa-bars"></i>

@@ -8,7 +8,6 @@
   </ol>
 
   <!-- Icon Cards-->
-  <img src="images/Logo Radio Kiara.jpg" class="rounded mx-auto d-block" alt="Logo Kiara 96.7 FM" width="400px"><br><br>
   <div class="row">
     <div class="col-xl-4 col-sm-6 mb-3">
       <div class="card text-white bg-primary o-hidden h-100">

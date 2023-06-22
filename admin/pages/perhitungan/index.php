@@ -57,62 +57,31 @@
                     <thead>
                         <tr class="bg-primary" align="center">
                             <th>No</th>
-                            <th>Nama Penyiar</th>
-                            <th>Absensi</th>
-                            <th>Sikap Kerja</th>
-                            <th>Kemampuan Komunikasi</th>
-                            <th>Pemilihan Lagu</th>
-                            <th>Audience / Pendengar</th>
-                            <th>Masa Kerja</th>
+                            <th>Nama Penduduk</th>
+                            <th>Ibu Hamil</th>
+                            <th>Anak Usia Dini</th>
+                            <th>Anak SD</th>
+                            <th>Anak SMP</th>
+                            <th>Anak SMA</th>
+                            <th>Disabilitas Berat</th>
+                            <th>Lanjut Usia</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $penilaian = $db->tampilDataPenilaian();
                         foreach ($penilaian as $no => $pecah) :
-                            // $hadir = $pecah['nor_sikap'];
-                            // $penghasilan = $pecah['nor_komunikasi'];
-                            // $tanggungan = $pecah['nor_lagu'];
-
-                            // if ($hadir == 4) {
-                            //     $kehadiran = "Alpa < 1";
-                            // } elseif ($hadir == 3) {
-                            //     $kehadiran = "Alpa = 1";
-                            // } elseif ($hadir == 2) {
-                            //     $kehadiran = "Alpa = 2";
-                            // } else {
-                            //     $kehadiran = "Alpa > 3";
-                            // }
-
-                            // if ($penghasilan == 4) {
-                            //     $Portu = "Penghasilan ≤ Rp.1.000.000";
-                            // } elseif ($penghasilan == 3) {
-                            //     $Portu = "Rp.1.000.000 < Penghasilan ≥ Rp.3.000.000";
-                            // } elseif ($penghasilan == 2) {
-                            //     $Portu = "Rp.3.000.000 < Penghasilan ≥ Rp.5000.000";
-                            // } else {
-                            //     $Portu = "Penghasilan > 5.000.000";
-                            // }
-
-                            // if ($tanggungan == 4) {
-                            //     $JA = "≥ 4 Anak";
-                            // } elseif ($tanggungan == 3) {
-                            //     $JA = "3 Anak";
-                            // } elseif ($tanggungan == 2) {
-                            //     $JA = "2 Anak";
-                            // } else {
-                            //     $JA = "1 Anak";
-                            // }
                         ?>
                             <tr align="center">
                                 <td><?= ++$no ?></td>
-                                <td><?= $pecah['penyiar_nama'] ?></td>
-                                <td><?= $pecah['absensi'] ?></td>
-                                <td><?= $pecah['sikap'] ?></td>
-                                <td><?= $pecah['komunikasi'] ?></td>
-                                <td><?= $pecah['lagu'] ?></td>
-                                <td><?= $pecah['pendengar'] ?></td>
-                                <td><?= $pecah['masa_kerja'] ?> Tahun</td>
+                                <td><?= $pecah['nama_penduduk'] ?></td>
+                                <td><?= $pecah['ibu_hamil'] ?></td>
+                                <td><?= $pecah['anak_usia_dini'] ?></td>
+                                <td><?= $pecah['anak_sd'] ?></td>
+                                <td><?= $pecah['anak_smp'] ?></td>
+                                <td><?= $pecah['anak_sma'] ?></td>
+                                <td><?= $pecah['disabilitas_berat'] ?> </td>
+                                <td><?= $pecah['lanjut_usia'] ?> </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -132,13 +101,14 @@
                     <thead>
                         <tr class="bg-primary" align="center">
                             <th>No</th>
-                            <th>Nama Penyiar</th>
-                            <th>Absensi</th>
-                            <th>Sikap Kerja</th>
-                            <th>Kemampuan Komunikasi</th>
-                            <th>Pemilihan Lagu</th>
-                            <th>Audience / Pendengar</th>
-                            <th>Masa Kerja</th>
+                            <th>Nama Penduduk</th>
+                            <th>Ibu Hamil</th>
+                            <th>Anak Usia Dini</th>
+                            <th>Anak SD</th>
+                            <th>Anak SMP</th>
+                            <th>Anak SMA</th>
+                            <th>Disabilitas Berat</th>
+                            <th>Lanjut Usia</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,13 +118,14 @@
                         ?>
                             <tr align="center">
                                 <td><?= ++$no ?></td>
-                                <td><?= $pecah['penyiar_nama'] ?></td>
-                                <td><?= $pecah['nor_absensi'] ?></td>
-                                <td><?= $pecah['nor_sikap'] ?></td>
-                                <td><?= $pecah['nor_komunikasi'] ?></td>
-                                <td><?= $pecah['nor_lagu'] ?></td>
-                                <td><?= $pecah['nor_pendengar'] ?></td>
-                                <td><?= $pecah['nor_masakerja'] ?> Tahun</td>
+                                <td><?= $pecah['nama_penduduk'] ?></td>
+                                <td><?= $pecah['nilai_ibu_hamil'] ?></td>
+                                <td><?= $pecah['nilai_usia_dini'] ?></td>
+                                <td><?= $pecah['nilai_sd'] ?></td>
+                                <td><?= $pecah['nilai_smp'] ?></td>
+                                <td><?= $pecah['nilai_sma'] ?></td>
+                                <td><?= $pecah['nilai_disabilitas'] ?> </td>
+                                <td><?= $pecah['nilai_lanjut_usia'] ?> </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -174,13 +145,14 @@
                     <thead>
                         <tr class="bg-primary" align="center">
                             <th>No</th>
-                            <th>Nama Penyiar</th>
-                            <th>Absensi</th>
-                            <th>Sikap Kerja</th>
-                            <th>Kemampuan Komunikasi</th>
-                            <th>Pemilihan Lagu</th>
-                            <th>Audience / Pendengar</th>
-                            <th>Masa Kerja</th>
+                            <th>Nama Penduduk</th>
+                            <th>Ibu Hamil</th>
+                            <th>Anak Usia Dini</th>
+                            <th>Anak SD</th>
+                            <th>Anak SMP</th>
+                            <th>Anak SMA</th>
+                            <th>Disabilitas Berat</th>
+                            <th>Lanjut Usia</th>
                             <th>Total Nilai</th>
                             <th>Nilai Preferensi</th>
                         </tr>
@@ -197,29 +169,31 @@
                                 $datak[] = $pecah2;
                             }
 
-                            $juml = ($pecah['nor_absensi']      * $datak[0]['kriteria_bobot']) +
-                                ($pecah['nor_sikap']        * $datak[1]['kriteria_bobot']) +
-                                ($pecah['nor_komunikasi']   * $datak[2]['kriteria_bobot']) +
-                                ($pecah['nor_lagu']         * $datak[3]['kriteria_bobot']) +
-                                ($pecah['nor_pendengar']    * $datak[4]['kriteria_bobot']) +                                +
-                                ($pecah['nor_masakerja']    * $datak[5]['kriteria_bobot']);
+                            $juml = ($pecah['nilai_ibu_hamil']      * $datak[0]['kriteria_bobot']) +
+                                ($pecah['nilai_usia_dini']          * $datak[1]['kriteria_bobot']) +
+                                ($pecah['nilai_sd']                 * $datak[2]['kriteria_bobot']) +
+                                ($pecah['nilai_smp']                * $datak[3]['kriteria_bobot']) +
+                                ($pecah['nilai_sma']                * $datak[4]['kriteria_bobot']) +                                +
+                                ($pecah['nilai_disabilitas']        * $datak[5]['kriteria_bobot']) +
+                                    ($pecah['nilai_lanjut_usia']    * $datak[6]['kriteria_bobot']);
 
                             $total = $juml / $totalkriteria;
                         ?>
                             <tr>
                                 <td><?= ++$no ?></td>
-                                <td><?= $pecah['penyiar_nama'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_absensi']       * $datak[0]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_sikap']         * $datak[1]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_komunikasi']    * $datak[2]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_lagu']          * $datak[3]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_pendengar']     * $datak[4]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $pecah['nor_masakerja']     * $datak[5]['kriteria_bobot'] ?></td>
-                                <td class="text-center"><?= $juml ?></td>
+                                <td><?= $pecah['nama_penduduk'] ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_ibu_hamil']       * $datak[0]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_usia_dini']       * $datak[1]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_sd']              * $datak[2]['kriteria_bobot'], 2) ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_smp']             * $datak[3]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_sma']             * $datak[4]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_disabilitas']     * $datak[5]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($pecah['nilai_lanjut_usia']     * $datak[6]['kriteria_bobot'], 2)  ?></td>
+                                <td class="text-center"><?= number_format($juml, 2) ?></td>
                                 <td class="text-center"><?= substr($total, 0, 5)  ?></td>
                             </tr>
                             <form action="" method="post">
-                                <input type="hidden" name="id_kary[]" value="<?= $pecah['penyiar_id'] ?>">
+                                <input type="hidden" name="id_pdd[]" value="<?= $pecah['id_penduduk'] ?>">
                                 <input type="hidden" name="total[]" value="<?= $juml ?>">
                                 <input type="hidden" name="preferensi[]" value="<?= $total ?>">
 
@@ -239,12 +213,12 @@
     </form>
     <?php
     if (isset($_POST['simpan'])) {
-        $id = $_POST['id_kary'];
+        $id = $_POST['id_pdd'];
         $total = $_POST['total'];
         $preferensi = $_POST['preferensi'];
         foreach ($id as $key => $value) {
-            $koneksi->query("DELETE FROM tbl_rank WHERE penyiar_id = '$id[$key]'");
-            $koneksi->query("INSERT INTO `tbl_rank`(`penyiar_id`, `nilai_preferensi`, `nilai_ev`) VALUES ('$id[$key]','$preferensi[$key]','$total[$key]')");
+            $koneksi->query("DELETE FROM tbl_rank WHERE id_penduduk = '$id[$key]'");
+            $koneksi->query("INSERT INTO `tbl_rank`(`id_penduduk`, `nilai_preferensi`, `nilai_ev`) VALUES ('$id[$key]','$preferensi[$key]','$total[$key]')");
         } ?>
         <div class="card mb-3">
             <div class="card-header">
@@ -255,7 +229,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="" width="100%" cellspacing="0">
                         <thead>
-                            <tr class="bg-primary" align="center">
+                            <tr class="bg-primary text-white" align="center">
                                 <th>No</th>
                                 <th>Nama Penyiar</th>
                                 <th>Total Nilai</th>
@@ -271,7 +245,7 @@
                             ?>
                                 <tr>
                                     <td><?= ++$no ?></td>
-                                    <td><?= $pecah['penyiar_nama'] ?></td>
+                                    <td><?= $pecah['nama_penduduk'] ?></td>
                                     <td class="text-center"><?= $pecah['nilai_ev'] ?></td>
                                     <td class="text-center"><?= substr($pecah['nilai_preferensi'], 0, 5)  ?></td>
                                     <td class="text-center"><?= $no++ ?></td>

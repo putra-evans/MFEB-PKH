@@ -28,12 +28,12 @@
             <span>Data Admin</span>
         </a>
     </li>
-    <li class="nav-item ">
+    <!-- <li class="nav-item ">
         <a class="nav-link text-dark" href="berita.html">
             <i class="fa fa-newspaper"></i>
             <span>Data Berita</span>
         </a>
-    </li>
+    </li> -->
     <li class="nav-item ">
         <a class="nav-link text-dark" href="kriteria.html">
             <i class="fa fa-list"></i>
@@ -41,9 +41,9 @@
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link text-dark" href="karyawan.html">
+        <a class="nav-link text-dark" href="penduduk.html">
             <i class="fa fa-users"></i>
-            <span>Data Penyiar</span>
+            <span>Data Penduduk</span>
         </a>
     </li>
     <li class="nav-item ">

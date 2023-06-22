@@ -20,7 +20,7 @@ function TanggalIndo($date)
 <html lang="en">
 
 <head>
-    <title>Radio Kiara</title>
+    <title>MFEB - PKH</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,26 +81,34 @@ function TanggalIndo($date)
     <script src="../../assets/vendor/jquery/jquery.min.js"></script>
     <div id="wrapper">
         <div id="content-wrapper">
-            <table align="center">
-                <tr>
-                    <td width="100"> <img width="150px" src="../../images/Logo Radio Kiara.jpg" alt="Gambar"> &nbsp;&nbsp;&nbsp;&nbsp;
-                    </td><br>
-                    <td align="center" style="font-family: Arial;"><b><span style="font-size: 24px;">PT Radio Kiara Indah Berjaya</b></span>
-                        <br><small> jl.
-                            Raya Lubuk Begalung no.6 Padang, Sumatera Barat</small><br>
-                        <small>0813-2288-8455 &emsp; Email. kiarafm@gmail.com</small><br>
-                </tr>
+            <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td width="20%" align="left" valign="top">
+                            <img src="../../images/provsumbar.png" width="75px" height="90px" style="margin-left: 30px;">
+                        </td>
+                        <td valign="top" align="center" valign="center">
+                            <p style="font-size: 14px;margin-bottom: 3px;">
+                                PEMERINTAH PROVINSI SUMATERA BARAT
+                            </p>
+                            <p style="font-size: 16px;">
+                                <strong><span>DINAS ENERGI DAN SUMBER DAYA MINERAL</span></strong>
+                            </p>
+                            <p style="color: black; font:smaller;margin-top: 3px;">Jln Jhoni Anwar 85, Telp (0751) 7054487, 7052146, Faksimil (0751) 7051440
+                                <br>
+                            <p style="font-size: 14px;margin-bottom: 3px;">PADANG - 25142 </p>
+                            </p>
+                        </td>
+                        <td width="13%">
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <table align="center">
-                <tr>
-                    <td width="750">
-                        <hr style="border-top: 5px double black;">
-                    </td>
-                </tr>
-            </table>
+            <hr style="margin-top: 3px;height:1px;background-color: black;">
+            <hr style="margin-top: -6px;">
             <br><br>
             <center>
-                <h3 class="text-capitalize"> <u>Laporan Data Penyiar Radio </u> </h3>
+                <h3 class="text-capitalize"> <u>Laporan Data Penduduk Lulus PKH</u> </h3>
             </center>
             <br><br>
             <table id="customers" width="70%" cellspacing="0">
@@ -117,14 +125,14 @@ function TanggalIndo($date)
                     <?php
                     $no = 1;
                     $no2 = 1;
-                    $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_penyiar b ON a.penyiar_id=b.penyiar_id ORDER BY a.nilai_ev DESC");
+                    $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk ORDER BY a.nilai_ev DESC");
                     while ($pecah = $ambil->fetch_array()) {
                     ?>
                         <tr>
                             <td align="center"><?= $no++ ?></td>
-                            <td><?= $pecah['penyiar_nama'] ?></td>
-                            <td><?= $pecah['penyiar_nohp'] ?></td>
-                            <td><?= $pecah['penyiar_email'] ?></td>
+                            <td><?= $pecah['nama_penduduk'] ?></td>
+                            <td><?= $pecah['nohp_penduduk'] ?></td>
+                            <td><?= $pecah['email_penduduk'] ?></td>
                             <td align="center"><?= $pecah['nilai_ev'] ?></td>
                             <td align="center"><?= $pecah['nilai_preferensi'] ?></td>
                             <td align="center"><?= $no2++ ?></td>
@@ -141,7 +149,7 @@ function TanggalIndo($date)
         <br><br>
         <table border="0" align="right">
             <tr>
-                <td align="center">PT Radio Kiara Indah Berjaya</td>
+                <td align="center">PT Indah Sekali</td>
                 <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
             </tr>
             <tr>

@@ -1,9 +1,9 @@
 <?php
 $id = $_GET['id'];
 
-$db->HapusKaryawan($id);
+$db->HapusPdd($id);
 echo "
    <script>
    alert('data berhasil di hapus');
-   window.location='karyawan.html'
+   window.location='penduduk.html'
    </script>";

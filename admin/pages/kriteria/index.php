@@ -11,16 +11,17 @@
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Kriteria</div>
+            Data Kriteria
+        </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th width="5%" class="text-center">No</th>
                             <th>Kriteria</th>
-                            <th>Bobot</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Bobot</th>
+                            <th width="10%" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,20 +32,19 @@
                             @$jumlah +=  $pecah['kriteria_bobot'];
                         ?>
                             <tr>
-                                <td><?= ++$no ?></td>
+                                <td style="text-align: center;"><?= ++$no ?></td>
                                 <td><?= $pecah['kriteria_nama'] ?></td>
-                                <td><?= $pecah['kriteria_bobot'] ?></td>
-                                <td>
-                                    <button type="button" onclick="tampilModal('<?= $pecah['kriteria_id'] ?>')" class="btn btn-warning"><i class="fa fa-edit"></i></button>
+                                <td style="text-align: center;"><?= $pecah['kriteria_bobot'] ?></td>
+                                <td class="text-center">
+                                    <button type="button" onclick="tampilModal('<?= $pecah['kriteria_id'] ?>')" class="btn btn-warning btn-sm btn-rounded"><i class="fa fa-edit"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Jumlah Nilai</td>
-                            <td><span>Pastikan Nilai Jumlah Dari Kriteria</span></td>
-                            <td><?= $jumlah ?></td>
+                            <td class="text-right" colspan="2">Jumlah Nilai :</td>
+                            <td class="text-center"> <strong><?= $jumlah ?></strong> </td>
                             <td></td>
                         </tr>
                     </tfoot>
