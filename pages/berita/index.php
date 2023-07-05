@@ -25,7 +25,8 @@ function TanggalIndo($date)
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Berita</div>
+            Data Berita
+        </div>
         <div class="card-body">
             <a class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal" style="margin-top: -10px; " href="#">Tambah Data</a>
             <div class="table-responsive">
@@ -57,7 +58,7 @@ function TanggalIndo($date)
 
                                 <td>
                                     <button type="button" onclick="tampilModal('<?= $pecah['berita_id'] ?>')" class="btn btn-warning btn-block mb-2">Edit</button>
-                                    <a class="btn btn-danger" href="hapus-berita-<?= $pecah['berita_id']  ?>.html">Hapus</a>
+                                    <a class="btn btn-danger" href="?page=pages/berita/hapusBerita&id=<?= $pecah['berita_id']  ?>">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -91,7 +92,7 @@ function TanggalIndo($date)
                         <?php if (isset($_POST['save'])) {
                             $db->saveBerita($_POST);
                             echo "     <script>alert('data berhasil disimpan')</script>";
-                            echo "<meta http-equiv='refresh' content='0;url=berita.html'>";
+                            echo "<meta http-equiv='refresh' content='0;url=?page=pages/berita/index'>";
                         } ?>
                         <div class="form-group">
                             <label class="font-weight-bold">Judul Berita</label>
@@ -164,7 +165,7 @@ function TanggalIndo($date)
                 <?php if (isset($_POST['edit'])) {
                     $db->editBerita($_POST);
                     echo "     <script>alert('data berhasil di edit')</script>";
-                    echo "<meta http-equiv='refresh' content='0;url=berita.html'>";
+                    echo "<meta http-equiv='refresh' content='0;url=?page=pages/berita/index'>";
                 } ?>
 
 

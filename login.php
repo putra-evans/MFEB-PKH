@@ -11,14 +11,14 @@ if (isset($_SESSION['admin'])) {
 }
 
 if ($admin != 0) {
-    header('location:home.html');
+    header('location:index.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>MFEB - PKH</title>
+    <title>MFEP - PKH</title>
     <?php include 'components/head.php'; ?>
 
 

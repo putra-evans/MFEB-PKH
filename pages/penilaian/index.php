@@ -14,7 +14,7 @@
             Data Table Penilaian
         </div>
         <div class="card-body">
-            <a class="btn btn-primary mb-3" style="margin-top: -10px; " href="tambah.html"><i class="fa fa-plus"></i> Tambah Data</a>
+            <a class="btn btn-primary mb-3" style="margin-top: -10px; " href="?page=pages/penilaian/tambah_penilaian"><i class="fa fa-plus"></i> Tambah Data</a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -49,7 +49,7 @@
                                 <td><?= ucwords($pecah['disabilitas_berat']) ?></td>
                                 <td><?= ucwords($pecah['lanjut_usia']) ?></td>
                                 <td>
-                                    <a class="btn btn-danger btn-sm" href="hapus-nilai-<?= $pecah['nilai_id']  ?>.html"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="?page=pages/penilaian/hapusnilai&idhapus=<?= $pecah['nilai_id']  ?>"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>

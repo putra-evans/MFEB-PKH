@@ -70,7 +70,7 @@
                     <?php if (isset($_POST['edit'])) {
                         $db->editKriteria($_POST);
                         echo "     <script>alert('Berhasil')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=kriteria.html'>";
+                        echo "<meta http-equiv='refresh' content='0;url=?page=pages/kriteria/index'>";
                     } ?>
                     <input type="hidden" id="id" name="kriteria_id" class="form-control">
                     <div class="form-group">

@@ -43,7 +43,7 @@
           ?>
           <div class="mr-5"><?php echo $pecah['COUNT(*)'] ?> Admin</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="admin.html">
+        <a class="card-footer text-white clearfix small z-1" href="?page=pages/admin/index">
           <span class="float-left">Lihat Details</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -66,7 +66,7 @@
           ?>
           <div class="mr-5"><?php echo $pecah['COUNT(*)'] ?> Penduduk</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="penduduk.html">
+        <a class="card-footer text-white clearfix small z-1" href="?page=pages/penduduk/index">
           <span class="float-left">Lihat Details</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>

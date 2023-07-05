@@ -11,7 +11,7 @@
               <div class="modal-body">Silahkan Pilih Keluar Jika Kamu Sudah Selesai </div>
               <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="login.html">Keluar</a>
+                  <a class="btn btn-primary" href="login.php">Keluar</a>
               </div>
           </div>
       </div>

@@ -44,7 +44,7 @@
                                     <button type="button" onclick="tampilModal2('<?= $pecah['admin_id'] ?>')" class="btn btn-info"><i class="fas fa-eye" title="Detail Admin"></i></button>
 
                                     <button type="button" onclick="tampilModal('<?= $pecah['admin_id'] ?>')" class="btn btn-warning" title="Edit Admin"><i class="fa fa-edit"></i></button>
-                                    <a class="btn btn-danger" href="hapus-admin-<?= $pecah['admin_id']  ?>.html" title="Hapus Admin"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger" href="?page=pages/admin/hapusadmin&idhapus=<?= $pecah['admin_id']  ?>" title="Hapus Admin"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -75,7 +75,7 @@
                     // if (isset($_POST['save'])) {
                     $db->tambahData($_POST);
                     echo "     <script>alert('data berhasil disimpan')</script>";
-                    echo "     <script>window.location='admin.html'</script>";
+                    echo "     <script>window.location='?page=pages/admin/index'</script>";
                 }
                 ?>
                 <div class="container">
@@ -167,7 +167,7 @@
                     <?php if (isset($_POST['edit'])) {
                         $db->editdata($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=admin.html'>";
+                        echo "<meta http-equiv='refresh' content='0;url=?page=pages/admin/index'>";
                     } ?>
                     <input type="hidden" id="id" name="admin_id" class="form-control">
                     <div class="form-group">

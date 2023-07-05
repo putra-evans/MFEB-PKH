@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jun 2023 pada 18.41
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 7.4.33
+-- Host: localhost:3306
+-- Waktu pembuatan: 05 Jul 2023 pada 23.50
+-- Versi server: 8.0.33-cll-lve
+-- Versi PHP: 8.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mfep_pkh`
+-- Database: `putraemy_pkh_mfeb`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_admin` (
-  `admin_id` int(11) NOT NULL,
+  `admin_id` int NOT NULL,
   `admin_nama` varchar(55) NOT NULL,
   `admin_tempat` varchar(100) NOT NULL,
   `admin_lahir` date NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `tbl_admin` (
   `admin_password` varchar(55) NOT NULL,
   `admin_alamat` text NOT NULL,
   `admin_foto` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_admin`
@@ -55,12 +55,12 @@ INSERT INTO `tbl_admin` (`admin_id`, `admin_nama`, `admin_tempat`, `admin_lahir`
 --
 
 CREATE TABLE `tbl_berita` (
-  `berita_id` int(11) NOT NULL,
+  `berita_id` int NOT NULL,
   `berita_judul` varchar(100) NOT NULL,
   `berita_isi` text NOT NULL,
   `berita_tgl` date NOT NULL,
   `berita_gambar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_berita`
@@ -78,8 +78,8 @@ INSERT INTO `tbl_berita` (`berita_id`, `berita_judul`, `berita_isi`, `berita_tgl
 --
 
 CREATE TABLE `tbl_kriteria` (
-  `kriteria_id` int(11) NOT NULL,
-  `kriteria_nama` varchar(100) NOT NULL,
+  `kriteria_id` int NOT NULL,
+  `kriteria_nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `kriteria_bobot` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,13 +88,13 @@ CREATE TABLE `tbl_kriteria` (
 --
 
 INSERT INTO `tbl_kriteria` (`kriteria_id`, `kriteria_nama`, `kriteria_bobot`) VALUES
-(1, 'Ibu Hamil', '0.17'),
-(2, 'Anak Usia Dini', '0.17'),
-(3, 'Anak SD', '0.06'),
-(4, 'Anak SMP', '0.11'),
-(5, 'Anak SMA', '0.15'),
-(6, 'Disabilitas Berat', '0.17'),
-(7, 'Lanjut Usia', '0.17');
+(1, 'Ibu Hamil', 0.17),
+(2, 'Anak Usia Dini', 0.17),
+(3, 'Anak SD', 0.06),
+(4, 'Anak SMP', 0.11),
+(5, 'Anak SMA', 0.15),
+(6, 'Disabilitas Berat', 0.17),
+(7, 'Lanjut Usia', 0.17);
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,8 @@ INSERT INTO `tbl_kriteria` (`kriteria_id`, `kriteria_nama`, `kriteria_bobot`) VA
 --
 
 CREATE TABLE `tbl_normalisasi` (
-  `normalisasi_id` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
+  `normalisasi_id` int NOT NULL,
+  `id_penduduk` int NOT NULL,
   `nilai_ibu_hamil` decimal(10,2) NOT NULL,
   `nilai_usia_dini` decimal(10,2) NOT NULL,
   `nilai_sd` decimal(10,2) NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `tbl_normalisasi` (
   `nilai_sma` decimal(10,2) NOT NULL,
   `nilai_disabilitas` decimal(10,2) NOT NULL,
   `nilai_lanjut_usia` decimal(10,2) NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -120,11 +120,11 @@ CREATE TABLE `tbl_normalisasi` (
 --
 
 INSERT INTO `tbl_normalisasi` (`normalisasi_id`, `id_penduduk`, `nilai_ibu_hamil`, `nilai_usia_dini`, `nilai_sd`, `nilai_smp`, `nilai_sma`, `nilai_disabilitas`, `nilai_lanjut_usia`, `tgl_input`) VALUES
-(87, 42, '0.00', '10.00', '10.00', '10.00', '0.00', '10.00', '10.00', '2023-06-22 15:57:59'),
-(88, 41, '10.00', '0.00', '0.00', '10.00', '0.00', '0.00', '10.00', '2023-06-22 15:58:24'),
-(89, 40, '0.00', '0.00', '10.00', '0.00', '10.00', '10.00', '0.00', '2023-06-22 15:58:54'),
-(90, 39, '10.00', '10.00', '0.00', '10.00', '0.00', '0.00', '10.00', '2023-06-22 15:59:19'),
-(91, 38, '0.00', '10.00', '10.00', '0.00', '10.00', '0.00', '10.00', '2023-06-22 15:59:42');
+(87, 42, 0.00, 10.00, 10.00, 10.00, 0.00, 10.00, 10.00, '2023-06-22 15:57:59'),
+(88, 41, 10.00, 0.00, 0.00, 10.00, 0.00, 0.00, 10.00, '2023-06-22 15:58:24'),
+(89, 40, 0.00, 0.00, 10.00, 0.00, 10.00, 10.00, 0.00, '2023-06-22 15:58:54'),
+(90, 39, 10.00, 10.00, 0.00, 10.00, 0.00, 0.00, 10.00, '2023-06-22 15:59:19'),
+(91, 38, 0.00, 10.00, 10.00, 0.00, 10.00, 0.00, 10.00, '2023-06-22 15:59:42');
 
 -- --------------------------------------------------------
 
@@ -133,13 +133,13 @@ INSERT INTO `tbl_normalisasi` (`normalisasi_id`, `id_penduduk`, `nilai_ibu_hamil
 --
 
 CREATE TABLE `tbl_penduduk` (
-  `id_penduduk` int(11) NOT NULL,
-  `nama_penduduk` varchar(100) NOT NULL,
-  `jk_penduduk` varchar(15) NOT NULL,
-  `alamat_penduduk` text NOT NULL,
-  `nohp_penduduk` varchar(13) NOT NULL,
-  `email_penduduk` varchar(50) NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id_penduduk` int NOT NULL,
+  `nama_penduduk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `jk_penduduk` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_penduduk` text COLLATE utf8mb4_general_ci NOT NULL,
+  `nohp_penduduk` varchar(13) COLLATE utf8mb4_general_ci NOT NULL,
+  `email_penduduk` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -172,16 +172,16 @@ INSERT INTO `tbl_penduduk` (`id_penduduk`, `nama_penduduk`, `jk_penduduk`, `alam
 --
 
 CREATE TABLE `tbl_penilaian` (
-  `nilai_id` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
-  `ibu_hamil` varchar(20) NOT NULL,
-  `anak_usia_dini` varchar(20) NOT NULL,
-  `anak_sd` varchar(20) NOT NULL,
-  `anak_smp` varchar(20) NOT NULL,
-  `anak_sma` varchar(20) NOT NULL,
-  `disabilitas_berat` varchar(20) NOT NULL,
-  `lanjut_usia` varchar(20) NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
+  `nilai_id` int NOT NULL,
+  `id_penduduk` int NOT NULL,
+  `ibu_hamil` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `anak_usia_dini` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `anak_sd` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `anak_smp` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `anak_sma` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `disabilitas_berat` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `lanjut_usia` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -202,11 +202,11 @@ INSERT INTO `tbl_penilaian` (`nilai_id`, `id_penduduk`, `ibu_hamil`, `anak_usia_
 --
 
 CREATE TABLE `tbl_rank` (
-  `rank_id` int(11) NOT NULL,
-  `id_penduduk` int(11) NOT NULL,
+  `rank_id` int NOT NULL,
+  `id_penduduk` int NOT NULL,
   `nilai_preferensi` float NOT NULL,
   `nilai_ev` float NOT NULL,
-  `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
+  `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -263,43 +263,43 @@ ALTER TABLE `tbl_rank`
 -- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `admin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_berita`
 --
 ALTER TABLE `tbl_berita`
-  MODIFY `berita_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `berita_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kriteria`
 --
 ALTER TABLE `tbl_kriteria`
-  MODIFY `kriteria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kriteria_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_normalisasi`
 --
 ALTER TABLE `tbl_normalisasi`
-  MODIFY `normalisasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `normalisasi_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_penduduk`
 --
 ALTER TABLE `tbl_penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_penduduk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_penilaian`
 --
 ALTER TABLE `tbl_penilaian`
-  MODIFY `nilai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `nilai_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_rank`
 --
 ALTER TABLE `tbl_rank`
-  MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=406;
+  MODIFY `rank_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=406;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -5,5 +5,5 @@ $db->HapusPdd($id);
 echo "
    <script>
    alert('data berhasil di hapus');
-   window.location='penduduk.html'
+   window.location='?page=pages/penduduk/index'
    </script>";

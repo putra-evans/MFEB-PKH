@@ -3,10 +3,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $hasil = $db->tambahDataPenilaian($_POST);
     if ($hasil == true) {
         echo "     <script>alert('Data Berhasil Disimpan')</script>";
-        echo "     <script>window.location='penilaian.html'</script>";
+        echo "     <script>window.location='?page=pages/penilaian/index'</script>";
     } else {
         echo "     <script>alert('Data Penduduk Sudah Ada')</script>";
-        echo "     <script>window.location='penilaian.html'</script>";
+        echo "     <script>window.location='?page=pages/penilaian/index'</script>";
     }
 }
 

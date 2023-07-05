@@ -43,7 +43,7 @@
                                 <td><?= $pecah['email_penduduk'] ?></td>
                                 <td align="center">
                                     <button type="button" onclick="tampilModal('<?= $pecah['id_penduduk'] ?>')" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
-                                    <a class="btn btn-danger btn-sm" href="hapus-penduduk-<?= $pecah['id_penduduk']  ?>.html"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="?page=pages/penduduk/hapuspenduduk&id=<?= $pecah['id_penduduk']  ?>"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -70,7 +70,7 @@
                 if (isset($_POST['save'])) {
                     $db->tambahPdd($_POST);
                     echo "     <script>alert('data berhasil disimpan')</script>";
-                    echo "     <script>window.location='penduduk.html'</script>";
+                    echo "     <script>window.location='?page=pages/penduduk/index'</script>";
                 }
                 ?>
                 <div class="container">
@@ -123,7 +123,7 @@
                     <?php if (isset($_POST['edit'])) {
                         $db->editPdd($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=penduduk.html'>";
+                        echo "<meta http-equiv='refresh' content='0;url=?page=pages/penduduk/index'>";
                     } ?>
                     <input type="hidden" id="id" name="id" class="form-control">
                     <div class="form-group">

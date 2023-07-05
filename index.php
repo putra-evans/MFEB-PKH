@@ -5,7 +5,7 @@ $db = new Db();
 
 if (empty($_SESSION['admin'])) {
   echo "<script>
-  window.location='login.html';
+  window.location='login.php';
   </script>";
 }
 
@@ -18,7 +18,7 @@ if (empty($_SESSION['admin'])) {
 <html lang="en">
 
 <head>
-  <title>MFEB - PKH</title>
+  <title>MFEP - PKH</title>
 
 
   <?php include('components/head.php') ?>

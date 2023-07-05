@@ -5,5 +5,5 @@ $db->HapusData($idhapus);
 echo "
    <script>
    alert('data berhasil di hapus');
-   window.location='admin.html'
+   window.location='?page=pages/admin/index'
    </script>";

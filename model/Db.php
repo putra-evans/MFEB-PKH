@@ -351,7 +351,7 @@ class Db extends conn
             echo "
             <script>
             alert('Selamat Anda Berhasil Login');
-            window.location='home.html';
+            window.location='index.php';
             </script>";
         } else {
             echo " <script>
