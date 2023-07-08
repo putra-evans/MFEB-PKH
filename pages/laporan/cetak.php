@@ -114,9 +114,9 @@ function TanggalIndo($date)
             <table id="customers" width="70%" cellspacing="0">
                 <thead>
                     <th>No</th>
-                    <th>Nama Penyiar</th>
-                    <th>No HP Penyiar</th>
-                    <th>Email Penyiar</th>
+                    <th>Nama</th>
+                    <th>No HP</th>
+                    <th>Email</th>
                     <th>Total Nilai</th>
                     <th>Nilai Preferensi</th>
                     <th>Peringkat</th>

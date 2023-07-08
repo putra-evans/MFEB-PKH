@@ -4,14 +4,14 @@
         <li class="breadcrumb-item">
             <a href="index.php">Home</a>
         </li>
-        <li class="breadcrumb-item active">Penyiar</li>
+        <li class="breadcrumb-item active">Penduduk</li>
     </ol>
 
     <!-- DataTables Example -->
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Penyiar
+            Data Penduduk
         </div>
         <div class="card-body">
             <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" style="margin-top: -10px; " href="#"><i class="fa fa-plus"></i> Tambah Data</a>

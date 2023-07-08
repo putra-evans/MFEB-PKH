@@ -232,7 +232,7 @@
                         <thead>
                             <tr class="bg-primary text-white" align="center">
                                 <th>No</th>
-                                <th>Nama Penyiar</th>
+                                <th>Nama penduduk</th>
                                 <th>Total Nilai</th>
                                 <th>Nilai Preferensi</th>
                                 <th>Ranking</th>
