@@ -85,28 +85,29 @@ function TanggalIndo($date)
                 <tbody>
                     <tr>
                         <td width="20%" align="left" valign="top">
-                            <img src="../../images/provsumbar.png" width="75px" height="90px" style="margin-left: 30px;">
+                            <img src="../../images/50kota.png" width="85px" height="100px" style="margin-left: 100px;">
                         </td>
                         <td valign="top" align="center" valign="center">
-                            <p style="font-size: 14px;margin-bottom: 3px;">
-                                PEMERINTAH PROVINSI SUMATERA BARAT
+                            <p style="font-size: 16px;margin-bottom: 3px;">
+                                PEMERINTAH KABUPATEN LIMA PULUH KOTA
                             </p>
-                            <p style="font-size: 16px;">
-                                <strong><span>DINAS ENERGI DAN SUMBER DAYA MINERAL</span></strong>
+                            <p style="font-size: 18px;margin-bottom: 3px;">
+                                <strong><span>DINAS SOSIAL</span></strong>
                             </p>
-                            <p style="color: black; font:smaller;margin-top: 3px;">Jln Jhoni Anwar 85, Telp (0751) 7054487, 7052146, Faksimil (0751) 7051440
+                            <p style="color: black; font:smaller;margin-bottom: 3px;">Jalan Soekarno-Hatta No. 87 Payakumbuh Kode Pos 26224
                                 <br>
-                            <p style="font-size: 14px;margin-bottom: 3px;">PADANG - 25142 </p>
+                            <p style="font-size: 14px;margin-bottom: 3px;">Telepon/Fax. 907520 92037 </p>
                             </p>
                         </td>
-                        <td width="13%">
+                        <td width="20%">
+                            <img src="../../images/logodinsos.png" width="75px" height="90px" style="margin-right: 100px;">
                         </td>
                     </tr>
                 </tbody>
             </table>
             <hr style="margin-top: 3px;height:1px;background-color: black;">
             <hr style="margin-top: -6px;">
-            <br><br>
+            <br>
             <center>
                 <h3 class="text-capitalize"> <u>Laporan Data Penduduk Lulus PKH</u> </h3>
             </center>
@@ -142,33 +143,37 @@ function TanggalIndo($date)
                 <tfoot>
                 </tfoot>
             </table>
-
+            <div class="col-6" style="text-align: right; float: right;">
+                <br><br>
+                <table border="0" align="right">
+                    <tr>
+                        <td align="center">Kepala Dinas</td>
+                        <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center">Padang, <?= TanggalIndo(date("Y-m-d H:i:s")); ?></td>
+                    </tr>
+                    <tr>
+                        <td>&emsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&emsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&emsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <p style="text-align: center;text-decoration: underline;"><strong>Ir. INDRA SURIANI</strong></p>
+                            <p style="text-align: center;margin-top: -15px;">NIP. 1968230040643001</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
+
     </div>
-    <div class="col-6 " style="text-align: right; float: right;">
-        <br><br>
-        <table border="0" align="right">
-            <tr>
-                <td align="center">PT Indah Sekali</td>
-                <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
-            </tr>
-            <tr>
-                <td align="center">Padang, <?= TanggalIndo(date("Y-m-d H:i:s")); ?></td>
-            </tr>
-            <tr>
-                <td>&emsp;</td>
-            </tr>
-            <tr>
-                <td>&emsp;</td>
-            </tr>
-            <tr>
-                <td>&emsp;</td>
-            </tr>
-            <tr>
-                <td align="center">FRONT OFFICE</td>
-            </tr>
-        </table>
-    </div>
+
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
