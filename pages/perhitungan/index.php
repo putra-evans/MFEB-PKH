@@ -160,9 +160,9 @@
                     <tbody>
                         <?php
 
-                        $dataKriteria = $db->tampilDataKriteria();
-                        $penilaian = $db->tampilDataNormalisasi();
-                        $totalkriteria = $db->ambiljumlahKriteria();
+                        $dataKriteria   = $db->tampilDataKriteria();
+                        $penilaian      = $db->tampilDataNormalisasi();
+                        $totalkriteria  = $db->ambiljumlahKriteria();
                         // var_dump($totalkriteria);
                         foreach ($penilaian as $no => $pecah) :
                             foreach ($dataKriteria as $key => $pecah2) {
@@ -173,9 +173,9 @@
                                 ($pecah['nilai_usia_dini']          * $datak[1]['kriteria_bobot']) +
                                 ($pecah['nilai_sd']                 * $datak[2]['kriteria_bobot']) +
                                 ($pecah['nilai_smp']                * $datak[3]['kriteria_bobot']) +
-                                ($pecah['nilai_sma']                * $datak[4]['kriteria_bobot']) +                                +
+                                ($pecah['nilai_sma']                * $datak[4]['kriteria_bobot']) +
                                 ($pecah['nilai_disabilitas']        * $datak[5]['kriteria_bobot']) +
-                                    ($pecah['nilai_lanjut_usia']    * $datak[6]['kriteria_bobot']);
+                                ($pecah['nilai_lanjut_usia']        * $datak[6]['kriteria_bobot']);
 
                             $total = $juml / $totalkriteria;
                         ?>

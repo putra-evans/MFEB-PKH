@@ -42,6 +42,12 @@
             <span>Laporan</span>
         </a>
     </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="logout.php">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+    </li>
 
 
 

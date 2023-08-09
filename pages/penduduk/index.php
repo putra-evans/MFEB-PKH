@@ -20,11 +20,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>NIK</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Alamat</th>
                             <th>No HP</th>
-                            <th>Email</th>
                             <th width="12%">Aksi</th>
                         </tr>
                     </thead>
@@ -36,11 +36,11 @@
                         ?>
                             <tr>
                                 <td><?= ++$no ?></td>
+                                <td><?= $pecah['nik'] ?></td>
                                 <td><?= $pecah['nama_penduduk'] ?></td>
                                 <td><?= $pecah['jk_penduduk'] ?></td>
                                 <td><?= $pecah['alamat_penduduk'] ?></td>
                                 <td><?= $pecah['nohp_penduduk'] ?></td>
-                                <td><?= $pecah['email_penduduk'] ?></td>
                                 <td align="center">
                                     <button type="button" onclick="tampilModal('<?= $pecah['id_penduduk'] ?>')" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></button>
                                     <a class="btn btn-danger btn-sm" href="?page=pages/penduduk/hapuspenduduk&id=<?= $pecah['id_penduduk']  ?>"><i class="fa fa-trash"></i></a>
@@ -76,6 +76,10 @@
                 <div class="container">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
+                            <label class="font-weight-bold">NIK</label>
+                            <input type="text" name="nik" class="form-control" required placeholder="Masukan NIK...">
+                        </div>
+                        <div class="form-group">
                             <label class="font-weight-bold">Nama Penduduk</label>
                             <input type="text" name="nama" class="form-control" placeholder="Masukan nama..." required>
                         </div>
@@ -95,10 +99,7 @@
                             <label class="font-weight-bold">No HP</label>
                             <input type="number" name="nohp" class="form-control" required placeholder="Masukan nohp">
                         </div>
-                        <div class="form-group">
-                            <label class="font-weight-bold">Email</label>
-                            <input type="text" name="email" class="form-control" required placeholder="Masukan email...">
-                        </div>
+
                         <button name="save" type="submit" class="btn btn-primary btn-block mb-2">Simpan</button>
                     </form>
                 </div>
@@ -127,6 +128,10 @@
                     } ?>
                     <input type="hidden" id="id" name="id" class="form-control">
                     <div class="form-group">
+                        <label class="font-weight-bold">Email</label>
+                        <input type="text" name="nik" id="nik" class="form-control">
+                    </div>
+                    <div class="form-group">
                         <label class="font-weight-bold">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control" value="">
                     </div>
@@ -147,10 +152,7 @@
                         <label class="font-weight-bold">No HP</label>
                         <input type="number" name="nohp" id="nohp" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label class="font-weight-bold">Email</label>
-                        <input type="text" name="email" id="email" class="form-control">
-                    </div>
+
             </div>
             <div class="modal-footer">
                 <button type="submit" name="edit" class="btn btn-warning">Edit</button>
@@ -177,7 +179,7 @@
                 $('#jk').val(data.jk_penduduk)
                 $('#alamat').val(data.alamat_penduduk)
                 $('#nohp').val(data.nohp_penduduk)
-                $('#email').val(data.email_penduduk)
+                $('#nik').val(data.nik)
                 // document.getElementById('foto').src = 'images/admin/' + data.admin_foto
                 $('#exampleEdit').modal()
             }

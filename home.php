@@ -1,14 +1,53 @@
-<div class="container-fluid">
+<style>
+  .hero {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero::before {
+    content: "";
+    background-image: url('./images//bghome.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+  }
+</style>
+<!-- style="height: 100%; background: url('./images//bghome.jpg'); background-position: center;
+background-repeat: no-repeat;background-size: cover;opacity: 0.5;" -->
+<div class="hero">
 
   <!-- Breadcrumbs-->
-  <ol class="breadcrumb">
+  <!-- <ol class="breadcrumb">
     <li class=" breadcrumb-item active">
       Home
     </li>
-  </ol>
+  </ol> -->
 
   <!-- Icon Cards-->
+  <center>
+    <div class="row" style="position: relative;
+    top: 0;">
+      <div class="col-md-12">
+
+        <marquee behavior="" direction="" style="font-size: larger;font-weight:bold;">Selamat datang di website Sistem Informasi Pendukung Keputusan Penerimaan Bantua PKH Dinas Sosial Kabupaten Lima Puluh Kota</marquee>
+
+        <img src="./images/logodinsos.png" width="300px" alt="" class="">
+      </div>
+
+    </div>
+
+  </center>
   <div class="row">
+
+    <!-- 
     <div class="col-xl-4 col-sm-6 mb-3">
       <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
@@ -73,7 +112,7 @@
           </span>
         </a>
       </div>
-    </div>
+    </div> -->
 
 
 

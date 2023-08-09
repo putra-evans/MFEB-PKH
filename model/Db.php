@@ -156,8 +156,8 @@ class Db extends conn
         $jk     = $data['jk'];
         $alamat = $data['alamat'];
         $nohp   = $data['nohp'];
-        $email  = $data['email'];
-        return $koneksi->query("UPDATE `tbl_penduduk` SET `nama_penduduk`='$nama',`jk_penduduk`='$jk ',`alamat_penduduk`='$alamat',`nohp_penduduk`='$nohp',`email_penduduk`='$email' WHERE `id_penduduk`='$id'");
+        $nik  = $data['nik'];
+        return $koneksi->query("UPDATE `tbl_penduduk` SET `nama_penduduk`='$nama',`jk_penduduk`='$jk ',`alamat_penduduk`='$alamat',`nohp_penduduk`='$nohp',`nik`='$nik' WHERE `id_penduduk`='$id'");
     }
 
     public function tambahPdd($data)
@@ -167,13 +167,13 @@ class Db extends conn
         $jk         = $data['jk'];
         $alamat     = $data['alamat'];
         $nohp       = $data['nohp'];
-        $email      = $data['email'];
-        $query = "INSERT INTO `tbl_penduduk`(`nama_penduduk`, `jk_penduduk`, `alamat_penduduk`, `nohp_penduduk`, `email_penduduk`) VALUES 
+        $nik        = $data['nik'];
+        $query = "INSERT INTO `tbl_penduduk`(`nama_penduduk`, `jk_penduduk`, `alamat_penduduk`, `nohp_penduduk`, `nik`) VALUES 
                                                                                 ('$nama',
                                                                                 '$jk',
                                                                                 '$alamat',
                                                                                 '$nohp',
-                                                                                '$email')";
+                                                                                '$nik')";
         return $koneksi->query($query);
     }
     //-------------------------------------------AKHIR DARI CRUD PENDUDUK---------------------------------------------//

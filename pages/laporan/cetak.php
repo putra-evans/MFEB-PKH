@@ -115,28 +115,36 @@ function TanggalIndo($date)
             <table id="customers" width="70%" cellspacing="0">
                 <thead>
                     <th>No</th>
+                    <th>NIK</th>
                     <th>Nama</th>
                     <th>No HP</th>
-                    <th>Email</th>
                     <th>Total Nilai</th>
                     <th>Nilai Preferensi</th>
                     <th>Peringkat</th>
+                    <th>Keterangan</th>
                 </thead>
                 <tbody>
                     <?php
+                    $jumlah = $_POST['jml_lulus'];
                     $no = 1;
                     $no2 = 1;
                     $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk ORDER BY a.nilai_ev DESC");
                     while ($pecah = $ambil->fetch_array()) {
+                        if ($no <= $jumlah) {
+                            $hasil = 'Lulus';
+                        } else {
+                            $hasil = 'Tidak Lulus';
+                        }
                     ?>
                         <tr>
                             <td align="center"><?= $no++ ?></td>
+                            <td><?= $pecah['nik'] ?></td>
                             <td><?= $pecah['nama_penduduk'] ?></td>
                             <td><?= $pecah['nohp_penduduk'] ?></td>
-                            <td><?= $pecah['email_penduduk'] ?></td>
                             <td align="center"><?= $pecah['nilai_ev'] ?></td>
                             <td align="center"><?= $pecah['nilai_preferensi'] ?></td>
                             <td align="center"><?= $no2++ ?></td>
+                            <td align="center"><?= $hasil ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

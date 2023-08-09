@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #6C63FF;">
+<nav class="navbar navbar-expand navbar-dark static-top" style="background-color: #007BFF;">
 
-  <a style="font-family: cursive; " class="navbar-brand mr-1" href="index.php">MFEP - PKH</a>
+  <a style="font-family: cursive; " class="navbar-brand mr-1" href="index.php">
+    <img src="./images/logodinsos.png" width="50px" alt="" class="">
+  </a>
 
 
   <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -24,8 +26,6 @@
         <img style="width: 30px;" class=" rounded-circle" src="images/admin/<?php echo $fotoadmin ?>" alt="">
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-
-
         <a class="dropdown-item" href="logout.php">Logout</a>
       </div>
     </li>

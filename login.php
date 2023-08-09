@@ -23,14 +23,37 @@ if ($admin != 0) {
 
 
 </head>
+<style>
+    .hero {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<body style="background-color: ghostwhite;">
+    .hero::before {
+        content: "";
+        background-image: url('./images//bghome.jpg');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.75;
+    }
+</style>
+<!-- style="background: url('./images/bg.jpg');" -->
+
+<body class="hero">
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-6">
-                        <svg id="a5c16198-98a1-478b-8909-43624583dcf2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="500" height="570" viewBox="0 0 793 551.73152">
+                        <!-- <svg id="a5c16198-98a1-478b-8909-43624583dcf2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="500" height="570" viewBox="0 0 793 551.73152">
                             <ellipse cx="158" cy="539.73152" rx="158" ry="12" fill="#e6e6e6" />
                             <path d="M324.27227,296.55377c27.49676-11.6953,61.74442-4.28528,95.19092.85757.31124-6.228,4.08385-13.80782.132-18.15284-4.80115-5.2788-4.35917-10.82529-1.47008-16.40375,7.38788-14.265-3.1969-29.44375-13.88428-42.0647a23.66937,23.66937,0,0,0-19.75537-8.29179l-19.7975,1.41411A23.70939,23.70939,0,0,0,343.635,230.85851v0c-4.72724,6.42917-7.25736,12.84055-5.66438,19.21854-7.08065,4.83882-8.27029,10.67977-5.08851,17.2644,2.698,4.14592,2.66928,8.18161-.12275,12.1056a55.89079,55.89079,0,0,0-8.31011,16.5061Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
                             <path d="M977.70889,651.09727H417.29111A18.79111,18.79111,0,0,1,398.5,632.30616h0q304.727-35.41512,598,0h0A18.79111,18.79111,0,0,1,977.70889,651.09727Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
@@ -59,14 +82,16 @@ if ($admin != 0) {
                             <path d="M361.14557,329.52422c-12.43861-5.4511-23.74934.47044-38.026,5.21926l-2.23683-39.51725c14.17612-7.55568,27.69209-9.59281,40.26285-3.728Z" transform="translate(-203.5 -174.13424)" fill="#6c63ff" />
                             <circle cx="172.52496" cy="78.09251" r="23.80211" fill="#ffb8b8" />
                             <path d="M404.5,249.22353c-23.56616,2.30811-41.52338-1.54606-53-12.52007v-8.8377h51Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
-                        </svg>
+                        </svg> -->
+                        <img src="./images/logodinsos.png" width="300px" alt="" class="">
+
                     </div>
                     <div class="col-md-6">
                         <div class="card-body mt-5">
                             <div class="brand-wrapper">
+                                <p style="font-size: larger;font-weight: bold;font-family: monospace;">Silahkan Login</p>
                             </div>
-                            <p class="login-card-description" style="font-family: fantasy;">Silahkan Login</p>
-                            <p class="">Selamat Datang...</p>
+
 
                             <form action="" method="POST">
                                 <div class="form-group">

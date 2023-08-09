@@ -8,15 +8,20 @@
     </ol>
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header bg-transparent">
                         <i class="fas fa-users"></i>
-                        Laporan</div>
+                        Laporan
+                    </div>
                     <div class="card-body">
                         <div class="form-group">
                             <form action="pages/laporan/cetak.php" target="_blank" method="post">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-print"></i> Cetak</button>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Jumlah Lulus</label>
+                                    <input type="number" placeholder="Jumlah lulus..." name="jml_lulus" id="jml_lulus" class="form-control" required>
+                                </div>
+                                <button type="submit" name="cari" class="btn btn-success"><i class="fas fa-print"></i> Cetak</button>
                             </form>
                         </div>
                     </div>
