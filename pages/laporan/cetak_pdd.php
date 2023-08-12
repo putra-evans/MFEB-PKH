@@ -109,7 +109,7 @@ function TanggalIndo($date)
             <hr style="margin-top: -6px;">
             <br>
             <center>
-                <h3 class="text-capitalize"> <u>Laporan Data Penduduk Lulus PKH</u> </h3>
+                <h3 class="text-capitalize"> <u>Laporan Data Penduduk</u> </h3>
             </center>
             <br><br>
             <table id="customers" width="70%" cellspacing="0">
@@ -117,34 +117,25 @@ function TanggalIndo($date)
                     <th>No</th>
                     <th>NIK</th>
                     <th>Nama</th>
+                    <th>Jenis Kelamin</th>
                     <th>No HP</th>
-                    <th>Total Nilai</th>
-                    <th>Nilai Preferensi</th>
-                    <th>Peringkat</th>
-                    <th>Keterangan</th>
+                    <th>Alamat</th>
                 </thead>
                 <tbody>
                     <?php
-                    $jumlah = $_POST['jml_lulus'];
                     $no = 1;
                     $no2 = 1;
-                    $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_penduduk b ON a.id_penduduk=b.id_penduduk ORDER BY a.nilai_ev DESC LIMIT $jumlah");
+                    $ambil = $koneksi->query("SELECT * FROM tbl_penduduk a ORDER BY id_penduduk DESC");
                     while ($pecah = $ambil->fetch_array()) {
-                        if ($no <= $jumlah) {
-                            $hasil = 'Lulus';
-                        } else {
-                            $hasil = 'Tidak Lulus';
-                        }
                     ?>
                         <tr>
                             <td align="center"><?= $no++ ?></td>
                             <td><?= $pecah['nik'] ?></td>
                             <td><?= $pecah['nama_penduduk'] ?></td>
-                            <td><?= $pecah['nohp_penduduk'] ?></td>
-                            <td align="center"><?= $pecah['nilai_ev'] ?></td>
-                            <td align="center"><?= $pecah['nilai_preferensi'] ?></td>
-                            <td align="center"><?= $no2++ ?></td>
-                            <td align="center"><?= $hasil ?></td>
+                            <td align="center"><?= $pecah['jk_penduduk'] ?></td>
+                            <td align="center"><?= $pecah['nohp_penduduk'] ?></td>
+                            <td align="center"><?= $pecah['alamat_penduduk'] ?></td>
+
                         </tr>
                     <?php } ?>
                 </tbody>
