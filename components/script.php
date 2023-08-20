@@ -1,12 +1,11 @@
   <!-- Bootstrap core JavaScript-->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="assets/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="assets/jquery-easing/jquery.easing.min.js"></script> -->
 
   <!-- Page level plugin JavaScript-->
-  <script src="assets/vendor/chart.js/Chart.min.js"></script>
+  <!-- <script src="assets/vendor/chart.js/Chart.min.js"></script> -->
   <script src="assets/vendor/datatables/jquery.dataTables.js"></script>
   <script src="assets/vendor/datatables/dataTables.bootstrap4.js"></script>
 
@@ -15,9 +14,20 @@
 
   <!-- Demo scripts for this page-->
   <script src="assets/js/demo/datatables-demo.js"></script>
-  <script src="assets/js/demo/chart-area-demo.js"></script>
+  <!-- <script src="assets/js/demo/chart-area-demo.js"></script> -->
 
   <script>
+    // $(document).ready(function() {
+
+    //   alert('ready')
+
+    //   // Validasi Add Data
+
+
+
+
+
+    // });
     $(function() {
       $("#example1").DataTable();
       $('#example2').DataTable({

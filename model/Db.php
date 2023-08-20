@@ -163,17 +163,17 @@ class Db extends conn
     public function tambahPdd($data)
     {
         global $koneksi;
-        $nama       = $data['nama'];
-        $jk         = $data['jk'];
-        $alamat     = $data['alamat'];
-        $nohp       = $data['nohp'];
-        $nik        = $data['nik'];
+        $input_nama       = $data['input_nama'];
+        $input_jk         = $data['input_jk'];
+        $input_alamat     = $data['input_alamat'];
+        $input_nohp       = $data['input_nohp'];
+        $input_nik        = $data['input_nik'];
         $query = "INSERT INTO `tbl_penduduk`(`nama_penduduk`, `jk_penduduk`, `alamat_penduduk`, `nohp_penduduk`, `nik`) VALUES 
-                                                                                ('$nama',
-                                                                                '$jk',
-                                                                                '$alamat',
-                                                                                '$nohp',
-                                                                                '$nik')";
+                                                                                ('$input_nama',
+                                                                                '$input_jk',
+                                                                                '$input_alamat',
+                                                                                '$input_nohp',
+                                                                                '$input_nik')";
         return $koneksi->query($query);
     }
     //-------------------------------------------AKHIR DARI CRUD PENDUDUK---------------------------------------------//

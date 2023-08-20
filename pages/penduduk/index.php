@@ -74,18 +74,18 @@
                 }
                 ?>
                 <div class="container">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data" id="form_tambah_pdd">
                         <div class="form-group">
                             <label class="font-weight-bold">NIK</label>
-                            <input type="text" name="nik" class="form-control" required placeholder="Masukan NIK...">
+                            <input type="number" name="input_nik" id="input_nik" class="form-control" placeholder="Masukan NIK..." required />
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Nama Penduduk</label>
-                            <input type="text" name="nama" class="form-control" placeholder="Masukan nama..." required>
+                            <input type="text" name="input_nama" id="input_nama" class="form-control" placeholder="Masukan nama..." required />
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Jenis Kelamin</label>
-                            <select name="jk" id="jk" class="form-control" required>
+                            <select name="input_jk" id="input_jk" class="form-control" required>
                                 <option value="">--Silahkan Pilih--</option>
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -93,11 +93,11 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Alamat</label>
-                            <textarea name="alamat" cols="30" rows="5" class="form-control" required placeholder="Masukan alamat..."></textarea>
+                            <textarea name="input_alamat" id="input_alamat" cols="30" rows="5" class="form-control" placeholder="Masukan alamat..." required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">No HP</label>
-                            <input type="number" name="nohp" class="form-control" required placeholder="Masukan nohp">
+                            <input type="number" name="input_nohp" id="input_nohp" class="form-control" placeholder="Masukan nohp" required>
                         </div>
 
                         <button name="save" type="submit" class="btn btn-primary btn-block mb-2">Simpan</button>
@@ -120,7 +120,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" id="form_edit_pdd" method="POST" enctype="multipart/form-data">
                     <?php if (isset($_POST['edit'])) {
                         $db->editPdd($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
@@ -163,7 +163,98 @@
     </div>
 </div>
 
+
+
+<script script src="assets/jquery-validation-1.19.5/dist/jquery.validate.min.js">
+</script>
 <script>
+    $("#form_tambah_pdd").validate({
+        rules: {
+            input_nik: {
+                required: true,
+                number: true,
+                maxlength: 16,
+                minlength: 16
+
+            },
+            input_nama: 'required',
+            input_jk: 'required',
+            input_alamat: 'required',
+            input_nohp: {
+                required: true,
+                number: true,
+                maxlength: 12,
+            },
+        },
+        messages: {
+            input_nik: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>NIK Wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>NIK maksimal sebanyak 16 karakter</span>",
+                minlength: "<span style='color:red;font-size:12px;font-style:italic'>NIK minimal sebanyak 16 karakter</span>",
+            },
+            input_nama: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Nama penduduk Wajib diisi</span>",
+            },
+            input_jk: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",
+            },
+            input_alamat: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Alamat Wajib diisi</span>",
+            },
+            input_nohp: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>No Hp wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nohp maksimal sebanyak 12 karakter</span>",
+            },
+        },
+        errorElement: "span",
+    })
+
+
+    $("#form_edit_pdd").validate({
+        rules: {
+            nik: {
+                required: true,
+                number: true,
+                maxlength: 16,
+                minlength: 16
+
+            },
+            nama: 'required',
+            jk: 'required',
+            alamat: 'required',
+            nohp: {
+                required: true,
+                number: true,
+                maxlength: 12,
+            },
+        },
+        messages: {
+            nik: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>NIK Wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>NIK maksimal sebanyak 16 karakter</span>",
+                minlength: "<span style='color:red;font-size:12px;font-style:italic'>NIK minimal sebanyak 16 karakter</span>",
+            },
+            nama: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Nama penduduk Wajib diisi</span>",
+            },
+            jk: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",
+            },
+            alamat: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Alamat Wajib diisi</span>",
+            },
+            nohp: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>No Hp wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nohp maksimal sebanyak 12 karakter</span>",
+            },
+        },
+        errorElement: "span",
+    })
+
     function tampilModal(id) {
         $.ajax({
             url: 'pages/penduduk/tampilEdit.php',
