@@ -81,7 +81,7 @@
                 <div class="container">
 
 
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data" id="form_tambah_admin">
 
                         <div class="form-group">
                             <label class="font-weight-bold">Nama Lengkap</label>
@@ -163,7 +163,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data" id="form_edit_admin">
                     <?php if (isset($_POST['edit'])) {
                         $db->editdata($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
@@ -350,7 +350,151 @@
     </div>
 </div>
 
+<script script src="assets/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
 <script>
+    $("#form_tambah_admin").validate({
+        rules: {
+            nama: {
+                required: true,
+                maxlength: 15,
+            },
+            tempat: 'required',
+            tgllahir: 'required',
+            notelp: {
+                required: true,
+                number: true,
+                maxlength: 12,
+            },
+            email: {
+                required: true,
+                email: true,
+                maxlength: 15
+            },
+            jk: 'required',
+            username: {
+                required: true,
+                maxlength: 10,
+            },
+            password: {
+                required: true,
+                maxlength: 10,
+            },
+            foto: 'required',
+
+
+        },
+        messages: {
+            nama: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Nama Wajib Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nama Max 15 Karakter</span>",
+            },
+            tempat: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Tempat Lahir Wajib Diisi</span>",
+            },
+            tgllahir: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Tanggal Lahir Wajib Diisi</span>",
+            },
+            notelp: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>No Hp wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nohp maksimal sebanyak 12 karakter</span>",
+            },
+            email: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Email Wajib Diisi</span>",
+                email: "<span style='color:red;font-size:12px;font-style:italic'>Format Harus Email</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Email maksimal sebanyak 15 karakter</span>",
+            },
+            jk: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",
+            },
+            username: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Username Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Username Max 10 Karakter</span>",
+            },
+            password: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Password Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Password Max 10 Karakter</span>",
+            },
+            foto: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Foto Wajib diisi</span>",
+            },
+        },
+        errorElement: "span",
+    })
+
+
+    $("#form_edit_admin").validate({
+        rules: {
+            admin_nama: {
+                required: true,
+                maxlength: 15,
+            },
+            admin_tempat: 'required',
+            admin_tgllahir: 'required',
+            admin_notelp: {
+                required: true,
+                number: true,
+                maxlength: 12,
+            },
+            admin_email: {
+                required: true,
+                email: true,
+                maxlength: 15
+            },
+            jk: 'required',
+            admin_username: {
+                required: true,
+                maxlength: 10,
+            },
+            admin_password: {
+                required: true,
+                maxlength: 10,
+            },
+            foto: 'required',
+
+
+        },
+        messages: {
+            admin_nama: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Nama Wajib Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nama Max 15 Karakter</span>",
+            },
+            admin_tempat: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Tempat Lahir Wajib Diisi</span>",
+            },
+            admin_tgllahir: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Tanggal Lahir Wajib Diisi</span>",
+            },
+            admin_notelp: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>No Hp wajib diisi</span>",
+                number: "<span style='color:red;font-size:12px;font-style:italic'>Format harus angka</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nohp maksimal sebanyak 12 karakter</span>",
+            },
+            admin_email: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Email Wajib Diisi</span>",
+                email: "<span style='color:red;font-size:12px;font-style:italic'>Format Harus Email</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Email maksimal sebanyak 15 karakter</span>",
+            },
+            jk: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",
+            },
+            admin_username: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Username Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Username Max 10 Karakter</span>",
+            },
+            admin_password: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Password Diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Password Max 10 Karakter</span>",
+            },
+            foto: {
+                required: "<span style='color:red;font-size:12px;font-style:italic'>Foto Wajib diisi</span>",
+            },
+        },
+        errorElement: "span",
+    })
+
+
+
     function tampilModal(id) {
         $.ajax({
             url: 'pages/admin/tampilEdit.php',

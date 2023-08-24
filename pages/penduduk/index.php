@@ -177,7 +177,10 @@
                 minlength: 16
 
             },
-            input_nama: 'required',
+            input_nama: {
+                required: true,
+                maxlength: 15,
+            },
             input_jk: 'required',
             input_alamat: 'required',
             input_nohp: {
@@ -195,6 +198,8 @@
             },
             input_nama: {
                 required: "<span style='color:red;font-size:12px;font-style:italic'>Nama penduduk Wajib diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nama maksimal sebanyak 15 karakter</span>",
+
             },
             input_jk: {
                 required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",
@@ -221,7 +226,10 @@
                 minlength: 16
 
             },
-            nama: 'required',
+            nama: {
+                required: true,
+                maxlength: 15,
+            },
             jk: 'required',
             alamat: 'required',
             nohp: {
@@ -239,6 +247,7 @@
             },
             nama: {
                 required: "<span style='color:red;font-size:12px;font-style:italic'>Nama penduduk Wajib diisi</span>",
+                maxlength: "<span style='color:red;font-size:12px;font-style:italic'>Nama maksimal sebanyak 15 karakter</span>",
             },
             jk: {
                 required: "<span style='color:red;font-size:12px;font-style:italic'>Jenis kelamin Wajib diisi</span>",

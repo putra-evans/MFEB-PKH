@@ -15,6 +15,6 @@
 <!-- Custom styles for this template-->
 <link href="assets/css/sb-admin.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/login.css">
-<!-- <script src="./assets/vendor/jquery/jquery.min.js"></script>
-<script src="./assets/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script> -->
+<!-- <script src="assets/vendor/jquery/jquery.min.js"></script> -->
+<!-- <script src="assets/jquery-validation-1.19.5/dist/jquery.validate.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>

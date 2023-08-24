@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Agu 2023 pada 16.57
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 7.4.33
+-- Generation Time: Aug 24, 2023 at 04:58 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,44 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_admin`
+-- Table structure for table `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
   `admin_id` int(11) NOT NULL,
-  `admin_nama` varchar(55) NOT NULL,
-  `admin_tempat` varchar(100) NOT NULL,
+  `admin_nama` varchar(15) NOT NULL,
+  `admin_tempat` text NOT NULL,
   `admin_lahir` date NOT NULL,
-  `admin_notelp` varchar(50) NOT NULL,
-  `admin_email` varchar(100) NOT NULL,
+  `admin_notelp` varchar(12) NOT NULL,
+  `admin_email` varchar(15) NOT NULL,
   `admin_jk` varchar(10) NOT NULL,
-  `admin_username` varchar(55) NOT NULL,
-  `admin_password` varchar(55) NOT NULL,
+  `admin_username` varchar(10) NOT NULL,
+  `admin_password` varchar(10) NOT NULL,
   `admin_alamat` text NOT NULL,
   `admin_foto` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_admin`
+-- Dumping data for table `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_nama`, `admin_tempat`, `admin_lahir`, `admin_notelp`, `admin_email`, `admin_jk`, `admin_username`, `admin_password`, `admin_alamat`, `admin_foto`) VALUES
-(7, 'admin', '', '0000-00-00', '', '', '', 'admin', '21232f297a57a5a743894a0e4a801fc3', '', 'ronaldo.jpg');
+(7, 'admin', '', '0000-00-00', '', '', '', 'admin', '21232f297a', '', 'ronaldo.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kriteria`
+-- Table structure for table `tbl_kriteria`
 --
 
 CREATE TABLE `tbl_kriteria` (
   `kriteria_id` int(11) NOT NULL,
   `kriteria_nama` varchar(100) NOT NULL,
   `kriteria_bobot` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_kriteria`
+-- Dumping data for table `tbl_kriteria`
 --
 
 INSERT INTO `tbl_kriteria` (`kriteria_id`, `kriteria_nama`, `kriteria_bobot`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `tbl_kriteria` (`kriteria_id`, `kriteria_nama`, `kriteria_bobot`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_normalisasi`
+-- Table structure for table `tbl_normalisasi`
 --
 
 CREATE TABLE `tbl_normalisasi` (
@@ -90,10 +90,10 @@ CREATE TABLE `tbl_normalisasi` (
   `nilai_disabilitas` decimal(10,2) NOT NULL,
   `nilai_lanjut_usia` decimal(10,2) NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_normalisasi`
+-- Dumping data for table `tbl_normalisasi`
 --
 
 INSERT INTO `tbl_normalisasi` (`normalisasi_id`, `id_penduduk`, `nilai_ibu_hamil`, `nilai_usia_dini`, `nilai_sd`, `nilai_smp`, `nilai_sma`, `nilai_disabilitas`, `nilai_lanjut_usia`, `tgl_input`) VALUES
@@ -106,29 +106,29 @@ INSERT INTO `tbl_normalisasi` (`normalisasi_id`, `id_penduduk`, `nilai_ibu_hamil
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_penduduk`
+-- Table structure for table `tbl_penduduk`
 --
 
 CREATE TABLE `tbl_penduduk` (
   `id_penduduk` int(11) NOT NULL,
-  `nama_penduduk` varchar(100) NOT NULL,
-  `jk_penduduk` varchar(15) NOT NULL,
+  `nama_penduduk` varchar(15) NOT NULL,
+  `jk_penduduk` varchar(10) NOT NULL,
   `alamat_penduduk` text NOT NULL,
-  `nohp_penduduk` varchar(13) NOT NULL,
-  `nik` varchar(20) NOT NULL,
+  `nohp_penduduk` varchar(12) NOT NULL,
+  `nik` varchar(16) NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_penduduk`
+-- Dumping data for table `tbl_penduduk`
 --
 
 INSERT INTO `tbl_penduduk` (`id_penduduk`, `nama_penduduk`, `jk_penduduk`, `alamat_penduduk`, `nohp_penduduk`, `nik`, `tgl_input`) VALUES
-(27, 'Malin Deman', 'Laki-Laki', 'Padang', '0867375937549', '14116545650004', '2023-08-09 13:48:08'),
+(27, 'Malin Deman', 'Laki-Laki', 'Padang', '086737593754', '14116545650004', '2023-08-09 13:48:08'),
 (28, 'Aziz Rusli', 'Laki-Laki', 'Padang', '081273846289', '14116545650004', '2023-08-09 13:48:08'),
 (29, 'Nuri Lenggogeni', 'Perempuan', 'Padang', '08335846238', '14116545650004', '2023-08-09 13:48:08'),
-(30, 'Tya Ambun Suri', 'Perempuan', 'Padang', '0834435345345', '14116545650004', '2023-08-09 13:48:08'),
-(31, 'Nilam Sari', 'Perempuan', 'Padang', '0823475849379', '14116545650004', '2023-08-09 13:48:08'),
+(30, 'Tya Ambun Suri', 'Perempuan', 'Padang', '083443534534', '14116545650004', '2023-08-09 13:48:08'),
+(31, 'Nilam Sari', 'Perempuan', 'Padang', '082347584937', '14116545650004', '2023-08-09 13:48:08'),
 (32, 'Vanny Osega', 'Perempuan', 'Padang', '082314584024', '14116545650004', '2023-08-09 13:48:08'),
 (33, 'Nouval Palala', 'Laki-Laki', 'Padang', '082375739583', '14116545650004', '2023-08-09 13:48:08'),
 (34, 'Opy Yuristia', 'Perempuan', 'Padang', '082345679054', '14116545650004', '2023-08-09 13:48:08'),
@@ -140,12 +140,12 @@ INSERT INTO `tbl_penduduk` (`id_penduduk`, `nama_penduduk`, `jk_penduduk`, `alam
 (40, 'Akbar Koto', 'Laki-Laki', 'Padang', '082344534568', '14116545650004', '2023-08-09 13:48:08'),
 (41, 'Uci Nur’aini', 'Perempuan', 'Padang', '082375748923', '14116545650004', '2023-08-09 13:48:08'),
 (42, 'Pitto Mansiang', 'Laki-Laki', 'Padang', '082345748594', '14116545650004', '2023-08-09 13:48:08'),
-(49, 'Putra Evans Pratama', 'Laki-Laki ', 'padang panjang', '0745456456', '000000000', '2023-08-09 13:52:03');
+(49, 'Putra Evans Pra', 'Laki-Laki ', 'padang panjang', '0745456456', '000000000', '2023-08-09 13:52:03');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_penilaian`
+-- Table structure for table `tbl_penilaian`
 --
 
 CREATE TABLE `tbl_penilaian` (
@@ -159,10 +159,10 @@ CREATE TABLE `tbl_penilaian` (
   `disabilitas_berat` varchar(20) NOT NULL,
   `lanjut_usia` varchar(20) NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_penilaian`
+-- Dumping data for table `tbl_penilaian`
 --
 
 INSERT INTO `tbl_penilaian` (`nilai_id`, `id_penduduk`, `ibu_hamil`, `anak_usia_dini`, `anak_sd`, `anak_smp`, `anak_sma`, `disabilitas_berat`, `lanjut_usia`, `tgl_input`) VALUES
@@ -175,7 +175,7 @@ INSERT INTO `tbl_penilaian` (`nilai_id`, `id_penduduk`, `ibu_hamil`, `anak_usia_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_rank`
+-- Table structure for table `tbl_rank`
 --
 
 CREATE TABLE `tbl_rank` (
@@ -184,10 +184,10 @@ CREATE TABLE `tbl_rank` (
   `nilai_preferensi` float NOT NULL,
   `nilai_ev` float NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_rank`
+-- Dumping data for table `tbl_rank`
 --
 
 INSERT INTO `tbl_rank` (`rank_id`, `id_penduduk`, `nilai_preferensi`, `nilai_ev`, `tgl_input`) VALUES
@@ -202,77 +202,77 @@ INSERT INTO `tbl_rank` (`rank_id`, `id_penduduk`, `nilai_preferensi`, `nilai_ev`
 --
 
 --
--- Indeks untuk tabel `tbl_admin`
+-- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indeks untuk tabel `tbl_kriteria`
+-- Indexes for table `tbl_kriteria`
 --
 ALTER TABLE `tbl_kriteria`
   ADD PRIMARY KEY (`kriteria_id`);
 
 --
--- Indeks untuk tabel `tbl_normalisasi`
+-- Indexes for table `tbl_normalisasi`
 --
 ALTER TABLE `tbl_normalisasi`
   ADD PRIMARY KEY (`normalisasi_id`);
 
 --
--- Indeks untuk tabel `tbl_penduduk`
+-- Indexes for table `tbl_penduduk`
 --
 ALTER TABLE `tbl_penduduk`
   ADD PRIMARY KEY (`id_penduduk`);
 
 --
--- Indeks untuk tabel `tbl_penilaian`
+-- Indexes for table `tbl_penilaian`
 --
 ALTER TABLE `tbl_penilaian`
   ADD PRIMARY KEY (`nilai_id`);
 
 --
--- Indeks untuk tabel `tbl_rank`
+-- Indexes for table `tbl_rank`
 --
 ALTER TABLE `tbl_rank`
   ADD PRIMARY KEY (`rank_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_admin`
+-- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kriteria`
+-- AUTO_INCREMENT for table `tbl_kriteria`
 --
 ALTER TABLE `tbl_kriteria`
   MODIFY `kriteria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_normalisasi`
+-- AUTO_INCREMENT for table `tbl_normalisasi`
 --
 ALTER TABLE `tbl_normalisasi`
   MODIFY `normalisasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_penduduk`
+-- AUTO_INCREMENT for table `tbl_penduduk`
 --
 ALTER TABLE `tbl_penduduk`
   MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_penilaian`
+-- AUTO_INCREMENT for table `tbl_penilaian`
 --
 ALTER TABLE `tbl_penilaian`
   MODIFY `nilai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_rank`
+-- AUTO_INCREMENT for table `tbl_rank`
 --
 ALTER TABLE `tbl_rank`
   MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
